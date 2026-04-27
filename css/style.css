@@ -163,25 +163,99 @@ img, video {
 
 #slide-nav {
   position: fixed;
-  bottom: 28px;
+  bottom: 26px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
   z-index: 10;
 }
 
 #btn-prev,
 #btn-next {
-  padding: 8px 20px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--cream);
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  background: rgba(201,168,76,0.06);
-  opacity: 0.5;
+  padding: 9px 26px;
+  background: rgba(10,20,34,0.85);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  color: var(--cream);
+  font-size: 0.84rem;
+  cursor: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#btn-prev:hover:not(:disabled),
+#btn-next:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+#btn-prev:disabled,
+#btn-next:disabled {
+  opacity: 0.28;
+}
+
+#dot-track {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  cursor: none;
+  background: rgba(201,168,76,0.22);
+  transition: width 0.25s, background 0.25s, border-radius 0.25s;
+  position: relative;
+}
+
+.nav-dot.active {
+  background: var(--gold);
+  width: 18px;
+  border-radius: 3px;
+}
+
+#scroll-bar-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background: rgba(201,168,76,0.1);
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#scroll-bar-wrap.visible {
+  opacity: 1;
+}
+
+#scroll-bar-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  transition: width 0.08s linear;
+}
+
+#scroll-bar-wrap:not(.dir-prev) #scroll-bar-fill {
+  right: 0;
+  left: auto;
+  background: linear-gradient(270deg, var(--teal), var(--gold));
+  border-radius: 2px 0 0 2px;
+}
+
+#scroll-bar-wrap.dir-prev #scroll-bar-fill {
+  left: 0;
+  right: auto;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  border-radius: 0 2px 2px 0;
 }
 
 .slide-inner--cover {
