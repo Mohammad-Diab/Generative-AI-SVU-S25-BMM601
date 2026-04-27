@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Rules
+
+Before making any edit, read `rules.md` in the project root. All rules there are mandatory and override default behavior.
+
 ## Project
 
 Arabic RTL slideshow presenting **Generative AI** (الذكاء الاصطناعي التوليدي) for ITE_BMM601 · SVU · S25. Pure static site — no build step, no framework, no dependencies beyond Google Fonts.
