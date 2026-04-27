@@ -141,3 +141,166 @@ img, video {
   background: rgba(201,168,76,0.06);
   opacity: 0.5;
 }
+
+.slide-inner--cover {
+  justify-content: space-between;
+  padding: 40px 60px;
+  background: linear-gradient(160deg, rgba(0,201,212,0.04) 0%, transparent 50%);
+}
+.cover-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+.cover-top-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+.cover-uni-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+.cover-faculty {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--cream-dim);
+}
+.cover-semester {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--teal);
+  letter-spacing: 0.06em;
+}
+.cover-course {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+.cover-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.cover-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.cover-topic-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+.cover-topic {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1.2;
+}
+.cover-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  border-radius: 2px;
+  margin: 6px auto;
+}
+.cover-teacher-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.cover-teacher-inline .cover-role-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.cover-teacher-inline .cover-name {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--cream);
+  font-weight: 700;
+}
+.cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.cover-students {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.cover-role-label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cover-student-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 8px;
+  column-gap: 24px;
+  width: 100%;
+}
+.student-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 6px;
+  background: rgba(201,168,76,0.05);
+}
+.student-row .s-name {
+  flex: 0 0 auto;
+  font-size: 0.92rem;
+  color: var(--cream);
+  font-weight: 600;
+}
+.student-row .s-id {
+  flex: 1;
+  font-size: 0.84rem;
+  color: var(--teal);
+  font-family: monospace, var(--font-body);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.student-row .s-cls {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+.student-row .s-sep {
+  flex: 0 0 auto;
+  color: rgba(201,168,76,0.35);
+  font-size: 0.75rem;
+}
