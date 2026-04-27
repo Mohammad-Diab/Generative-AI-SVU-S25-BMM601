@@ -9,74 +9,71 @@
   const bgCanvas = document.getElementById('bg-canvas');
   const bgCtx    = bgCanvas.getContext('2d');
 
-  const NN = {
-    nodes: [],
-    NODE_COUNT: 60,
-    MAX_DIST:   180,
-    NODE_SPEED: 0.4,
+  const NODE_N      = 46;
+  const LINK_D      = 116;
+  const BG_INTERVAL = 1000 / 24;
+  let   bgNodes    = [];
+  let   bgLastTime = 0;
 
-    resize() {
-      bgCanvas.width  = window.innerWidth;
-      bgCanvas.height = window.innerHeight;
-    },
+  function resizeBg() {
+    bgCanvas.width  = window.innerWidth;
+    bgCanvas.height = window.innerHeight;
+  }
 
-    init() {
-      this.resize();
-      this.nodes = Array.from({ length: this.NODE_COUNT }, () => ({
+  function initNodes() {
+    bgNodes = [];
+    for (let i = 0; i < NODE_N; i++) {
+      bgNodes.push({
         x:  Math.random() * bgCanvas.width,
         y:  Math.random() * bgCanvas.height,
-        vx: (Math.random() - 0.5) * this.NODE_SPEED,
-        vy: (Math.random() - 0.5) * this.NODE_SPEED,
-        r:  Math.random() * 2 + 1.5,
-      }));
-    },
-
-    update() {
-      this.nodes.forEach(n => {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 0 || n.x > bgCanvas.width)  n.vx *= -1;
-        if (n.y < 0 || n.y > bgCanvas.height) n.vy *= -1;
+        vx: (Math.random() - 0.5) * 0.92,
+        vy: (Math.random() - 0.5) * 0.92,
+        r:  Math.random() * 2.1 + 1.0,
       });
-    },
+    }
+  }
 
-    draw() {
-      bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+  function tickBg(ts) {
+    requestAnimationFrame(tickBg);
+    if (ts - bgLastTime < BG_INTERVAL) return;
+    bgLastTime = ts;
 
-      for (let i = 0; i < this.nodes.length; i++) {
-        for (let j = i + 1; j < this.nodes.length; j++) {
-          const a = this.nodes[i], b = this.nodes[j];
-          const dx = a.x - b.x, dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist > this.MAX_DIST) continue;
-          const alpha = (1 - dist / this.MAX_DIST) * 0.35;
-          bgCtx.strokeStyle = `rgba(201,168,76,${alpha})`;
-          bgCtx.lineWidth   = 0.8;
-          bgCtx.beginPath();
-          bgCtx.moveTo(a.x, a.y);
-          bgCtx.lineTo(b.x, b.y);
-          bgCtx.stroke();
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+    bgNodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0) n.x = bgCanvas.width;
+      else if (n.x > bgCanvas.width)  n.x = 0;
+      if (n.y < 0) n.y = bgCanvas.height;
+      else if (n.y > bgCanvas.height) n.y = 0;
+    });
+
+    bgCtx.beginPath();
+    bgCtx.strokeStyle = 'rgba(201,168,76,0.34)';
+    bgCtx.lineWidth   = 0.75;
+    for (let i = 0; i < bgNodes.length; i++) {
+      for (let j = i + 1; j < bgNodes.length; j++) {
+        const dx = bgNodes[i].x - bgNodes[j].x;
+        const dy = bgNodes[i].y - bgNodes[j].y;
+        if (dx * dx + dy * dy < LINK_D * LINK_D) {
+          bgCtx.moveTo(bgNodes[i].x, bgNodes[i].y);
+          bgCtx.lineTo(bgNodes[j].x, bgNodes[j].y);
         }
       }
+    }
+    bgCtx.stroke();
 
-      this.nodes.forEach(n => {
-        bgCtx.beginPath();
-        bgCtx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        bgCtx.fillStyle = 'rgba(201,168,76,0.7)';
-        bgCtx.fill();
-      });
-    },
+    bgCtx.beginPath();
+    bgCtx.fillStyle = 'rgba(0,201,212,0.74)';
+    bgNodes.forEach(n => {
+      bgCtx.moveTo(n.x + n.r, n.y);
+      bgCtx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    });
+    bgCtx.fill();
+  }
 
-    tick() {
-      this.update();
-      this.draw();
-      requestAnimationFrame(() => this.tick());
-    },
-  };
-
-  window.addEventListener('resize', () => NN.resize());
-  NN.init();
-  NN.tick();
+  window.addEventListener('resize', () => { resizeBg(); initNodes(); });
+  resizeBg(); initNodes(); requestAnimationFrame(tickBg);
 
   /* ── SECTION 2 · CUSTOM CURSOR & LETTER PARTICLES ── */
   const curCanvas = document.getElementById('cursor-canvas');
