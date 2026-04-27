@@ -399,6 +399,20 @@
     }
   }, { passive: true });
 
+  document.querySelectorAll('[data-flip="true"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.card');
+      if (card) card.classList.add('flipped');
+    });
+  });
+
+  document.querySelectorAll('.btn-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.card');
+      if (card) card.classList.remove('flipped');
+    });
+  });
+
   function onSlideEnter(idx) {}
 
   updateNav();
