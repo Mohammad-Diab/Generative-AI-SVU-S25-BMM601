@@ -1,0 +1,41 @@
+# ── Claude ──────────────────────────────────────
+.claude/
+
+# ── OS ──────────────────────────────────────────
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── Editors ─────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Node (if build tools added later) ───────────
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ── Env & secrets ───────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Markdown (keep only README.md and LICENSE.md) ─
+*.md
+!README.md
+!LICENSE.md
+!CLAUDE.md
+
+# ── PDF ─────────────────────────────────────────
+*.pdf
+
+# ── Temp & logs ─────────────────────────────────
+*.log
+*.tmp
+*.temp
