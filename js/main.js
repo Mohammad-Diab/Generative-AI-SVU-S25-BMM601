@@ -1,11 +1,6 @@
-/* ═══════════════════════════════════════════════
-   Generative AI — ITE_BMM601 · SVU · S25
-   Interactivity
-═══════════════════════════════════════════════ */
 (function () {
   'use strict';
 
-  /* ── SECTION 1 · NEURAL NETWORK BACKGROUND ── */
   const bgCanvas = document.getElementById('bg-canvas');
   const bgCtx    = bgCanvas.getContext('2d');
 
@@ -75,7 +70,6 @@
   window.addEventListener('resize', () => { resizeBg(); initNodes(); });
   resizeBg(); initNodes(); requestAnimationFrame(tickBg);
 
-  /* ── SECTION 2 · CUSTOM CURSOR & LETTER PARTICLES ── */
   const curCanvas = document.getElementById('cursor-canvas');
   const curCtx    = curCanvas.getContext('2d');
 
