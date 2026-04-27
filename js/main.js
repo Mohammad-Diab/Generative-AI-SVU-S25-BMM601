@@ -227,8 +227,180 @@
     requestCursorTick();
   });
 
-  window.addEventListener('resize', () => resizeCur());
-  resizeCur();
-  requestCursorTick();
+  window.addEventListener('resize', () => { resizeCur(); curDirty = true; requestCursorTick(); });
+  resizeCur(); requestCursorTick();
+
+  const slides       = Array.from(document.querySelectorAll('.slide'));
+  const TOTAL        = slides.length;
+  const btnPrev      = document.getElementById('btn-prev');
+  const btnNext      = document.getElementById('btn-next');
+  const dotTrack     = document.getElementById('dot-track');
+  const currentNumEl = document.getElementById('current-num');
+  const progressFill = document.getElementById('progress-fill');
+  let   currentIdx   = 0;
+  let   animating    = false;
+  const ANIM_MS      = 650;
+
+  const SLIDE_LABELS = [
+    'الغلاف', 'مقدمة', 'الانتشار', 'GANs', 'نماذج اللغة',
+    'الصورة', 'الصوت', 'الفيديو', 'التطوير', 'النماذج', 'الميزان', 'الأخلاق', 'الخاتمة'
+  ];
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.dataset.tooltip = String(i + 1).padStart(2, '0') + ' · ' + (SLIDE_LABELS[i] || '');
+    dot.addEventListener('click', () => goTo(i));
+    dot.addEventListener('mouseenter', () => {
+      if (i === currentIdx) return;
+      hoveredDotIndex = i;
+      _lastHoveredLabel = String(i + 1).padStart(2, '0') + ' · ' + (SLIDE_LABELS[i] || '');
+      curDirty = true; requestCursorTick();
+    });
+    dot.addEventListener('mouseleave', () => { hoveredDotIndex = -1; curDirty = true; requestCursorTick(); });
+    dotTrack.appendChild(dot);
+  });
+
+  function attachCursorHover(el) {
+    el.addEventListener('mouseenter', () => {
+      if (el.disabled) return;
+      hoveredButton = true; curDirty = true; requestCursorTick();
+    });
+    el.addEventListener('mouseleave', () => { hoveredButton = false; curDirty = true; requestCursorTick(); });
+  }
+  document.querySelectorAll('button').forEach(attachCursorHover);
+
+  function updateNav() {
+    btnPrev.disabled = currentIdx === 0;
+    btnNext.disabled = currentIdx === TOTAL - 1;
+    document.querySelectorAll('.nav-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === currentIdx)
+    );
+    currentNumEl.textContent = String(currentIdx + 1).padStart(2, '0');
+    progressFill.style.height = ((currentIdx + 1) / TOTAL * 100) + '%';
+  }
+
+  function goTo(idx) {
+    if (animating || idx === currentIdx || idx < 0 || idx >= TOTAL) return;
+    slides[currentIdx].querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
+    animating = true;
+    const dir      = idx > currentIdx ? 1 : -1;
+    const outSlide = slides[currentIdx];
+    const inSlide  = slides[idx];
+    outSlide.classList.add(dir > 0 ? 'exit-next' : 'exit-prev');
+    inSlide.classList.add(dir > 0 ? 'enter-next' : 'enter-prev');
+    setTimeout(() => {
+      outSlide.classList.remove('active', 'exit-next', 'exit-prev');
+      inSlide.classList.remove('enter-next', 'enter-prev');
+      inSlide.classList.add('active');
+      currentIdx = idx;
+      animating  = false;
+      updateNav();
+      onSlideEnter(currentIdx);
+    }, ANIM_MS);
+  }
+
+  btnPrev.addEventListener('click', () => goTo(currentIdx - 1));
+  btnNext.addEventListener('click', () => goTo(currentIdx + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(currentIdx + 1);
+    if (e.key === 'ArrowRight') goTo(currentIdx - 1);
+  });
+
+  const scrollWrap               = document.getElementById('scroll-bar-wrap');
+  const scrollFill               = document.getElementById('scroll-bar-fill');
+  const SCROLL_NEEDED            = 600;
+  const SCROLL_LOCK_MS           = 500;
+  const SCROLL_COMPLETE_DELAY_MS = 350;
+  const SCROLL_COOLDOWN_MS       = 700;
+
+  let scrollAccum   = 0;
+  let committedDir  = 0;
+  let scrollCooling = false;
+  let lockTimer     = null;
+  let hideTimer     = null;
+
+  function hideScrollBar() {
+    scrollFill.style.width = '0%';
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => scrollWrap.classList.remove('visible'), 300);
+  }
+
+  function resetScrollBar() {
+    scrollAccum  = 0;
+    committedDir = 0;
+    hideScrollBar();
+    scrollWrap.classList.remove('dir-prev');
+  }
+
+  function fireCompletionFx(dir) {
+    const mainColor = dir > 0 ? '#00c9d4' : '#c9a84c';
+    const altColor  = dir > 0 ? '#c9a84c' : '#00c9d4';
+    const origin = { x: dir > 0 ? 0 : window.innerWidth, y: window.innerHeight };
+    const cx = window.innerWidth  / 2;
+    const cy = window.innerHeight / 2;
+    const dx = cx - origin.x, dy = cy - origin.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const baseAngle = Math.atan2(dy / dist, dx / dist);
+    const count = 22 + Math.floor(Math.random() * 10);
+    for (let i = 0; i < count; i++) {
+      const speed = 6 + Math.random() * 8;
+      const angle = baseAngle + (Math.random() - 0.5) * 0.55;
+      curDots.push({
+        x: origin.x + (Math.random() - 0.5) * 10,
+        y: origin.y + (Math.random() - 0.5) * 10,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life:  0.65 + Math.random() * 0.35,
+        size:  1.5 + Math.random() * 3,
+        color: Math.random() < 0.7 ? mainColor : altColor,
+      });
+    }
+    curDirty = true; requestCursorTick();
+  }
+
+  document.addEventListener('wheel', e => {
+    if (animating || scrollCooling) return;
+    const rawDir = e.deltaY > 0 ? 1 : -1;
+    if (rawDir === 1  && currentIdx === TOTAL - 1) return;
+    if (rawDir === -1 && currentIdx === 0)         return;
+    if (committedDir === 0) {
+      committedDir = rawDir;
+      scrollWrap.classList.toggle('dir-prev', committedDir === -1);
+      scrollWrap.classList.add('visible');
+    }
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(() => {
+      scrollAccum  = 0;
+      committedDir = 0;
+      hideScrollBar();
+      scrollWrap.classList.remove('dir-prev');
+    }, SCROLL_LOCK_MS);
+    if (rawDir === committedDir) {
+      scrollAccum = Math.min(scrollAccum + Math.abs(e.deltaY), SCROLL_NEEDED);
+    } else {
+      scrollAccum = Math.max(scrollAccum - Math.abs(e.deltaY), 0);
+    }
+    const pct = scrollAccum / SCROLL_NEEDED * 100;
+    scrollFill.style.width = pct + '%';
+    if (scrollAccum <= 0) { hideScrollBar(); return; }
+    scrollWrap.classList.add('visible');
+    if (pct >= 100) {
+      const dir = committedDir;
+      clearTimeout(lockTimer);
+      scrollCooling = true;
+      fireCompletionFx(dir);
+      setTimeout(() => {
+        resetScrollBar();
+        goTo(currentIdx + dir);
+        setTimeout(() => { scrollCooling = false; }, SCROLL_COOLDOWN_MS);
+      }, SCROLL_COMPLETE_DELAY_MS);
+    }
+  }, { passive: true });
+
+  function onSlideEnter(idx) {}
+
+  updateNav();
 
 })();
