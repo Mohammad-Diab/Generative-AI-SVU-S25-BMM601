@@ -2,3 +2,74 @@
    Generative AI — ITE_BMM601 · SVU · S25
    Styles
 ═══════════════════════════════════════════════ */
+
+/* ── 1. DESIGN TOKENS ── */
+:root {
+  --navy:        #0a0e1a;
+  --navy-mid:    #111827;
+  --navy-light:  #1a2235;
+  --gold:        #c9a84c;
+  --gold-dim:    #7a6230;
+  --teal:        #2dd4bf;
+  --teal-dim:    #0f766e;
+  --cream:       #e8e0d0;
+  --cream-dim:   #a09880;
+  --white:       #ffffff;
+  --danger:      #ef4444;
+  --success:     #22c55e;
+
+  --font-display: 'Changa', sans-serif;
+  --font-body:    'IBM Plex Sans Arabic', sans-serif;
+
+  --slide-w: 100vw;
+  --slide-h: 100vh;
+}
+
+/* ── 2. RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: none;
+  border: none;
+  background: none;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── 3. CANVAS POSITIONING ── */
+#bg-canvas,
+#cursor-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#bg-canvas     { z-index: 0; }
+#cursor-canvas { z-index: 100; }
