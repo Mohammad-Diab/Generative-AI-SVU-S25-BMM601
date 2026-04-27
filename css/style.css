@@ -327,7 +327,7 @@ img, video {
 
 .slide-eyebrow {
   font-family: var(--font-body);
-  font-size: 0.73rem;
+  font-size: 0.875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
@@ -408,6 +408,13 @@ img, video {
   background: var(--gold-dim);
   border-color: var(--gold);
   color: var(--cream);
+}
+
+.back-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 }
 
 .slide-inner--cover {
