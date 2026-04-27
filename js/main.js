@@ -173,9 +173,9 @@
     const stillAnimating = Math.abs(curRingR - ringTarget) > 0.05 || Math.abs(curHoverA - alphaTarget) > 0.005;
     if (stillAnimating) curDirty = true;
 
-    const r = Math.round(201 + (0   - 201) * curHoverA);
-    const g = Math.round(168 + (201 - 168) * curHoverA);
-    const b = Math.round(76  + (212 - 76)  * curHoverA);
+    const r = Math.round(201 + (255 - 201) * curHoverA);
+    const g = Math.round(168 + (220 - 168) * curHoverA);
+    const b = Math.round(76  + (80  - 76)  * curHoverA);
     const ringAlpha = 0.45 + 0.4 * curHoverA;
     const ringWidth = 1.2  + 0.6 * curHoverA;
 
@@ -411,6 +411,64 @@
       const card = btn.closest('.card');
       if (card) card.classList.remove('flipped');
     });
+  });
+
+  const DEEP_DIVE_DATA = {
+    definition: {
+      eyebrow: '٠١ · مقدمة — عمق المعرفة',
+      title: 'ما الذي يجعل الذكاء الاصطناعي "توليدياً"؟',
+      facts: [
+        'ChatGPT وصل إلى 100 مليون مستخدم في 60 يوماً — أسرع تبنٍّ لتقنية في التاريخ',
+        'حجم السوق: 44 مليار دولار (2023) ← متوقع 1.3 تريليون بحلول 2032',
+        'نماذج GPT-4 تحتوي على ما يُقدَّر بأكثر من تريليون معامل مُدرَّب',
+        'الفرق الجوهري: الذكاء التحليلي يُصنّف — التوليدي يُبدع ويُنشئ',
+      ],
+      paragraphs: [
+        'يختلف الذكاء الاصطناعي التوليدي جذرياً عن الأنظمة الكلاسيكية. بينما يعمل الذكاء التحليلي على تصنيف المدخلات أو التنبّؤ بناءً على أنماط ثابتة، يتعلّم النموذج التوليدي <strong>التوزيعات الإحصائية للبيانات</strong> ثم يستخدمها لإنشاء محتوى جديد لم يُرَ من قبل.',
+        'هناك ثلاثة مداخل رئيسية: <strong>نماذج الانتشار (Diffusion)</strong> التي تُزيل الضوضاء تدريجياً، <strong>الشبكات التوليدية التعاكسية (GANs)</strong> التي تعتمد على التنافس، و<strong>المحولات الكبيرة (Transformers)</strong> التي تتنبّأ بالرمز التالي احتمالياً.',
+        'التحوّل الحقيقي حدث عام 2022 مع <strong>ChatGPT وStable Diffusion</strong> — حين أصبح الذكاء التوليدي في متناول الجميع. هذا ليس مجرد أداة جديدة، بل تحوّل في طريقة تفكير البشر وإبداعهم.',
+      ],
+    },
+  };
+
+  const ddOverlay  = document.getElementById('deep-dive-overlay');
+  const ddBackdrop = document.getElementById('dd-backdrop');
+  const ddClose    = document.getElementById('dd-close');
+  const ddEyebrow  = document.getElementById('dd-eyebrow');
+  const ddTitleEl  = document.getElementById('dd-title');
+  const ddFacts    = document.getElementById('dd-facts');
+  const ddText     = document.getElementById('dd-text');
+
+  function openDeepDive(key) {
+    const data = DEEP_DIVE_DATA[key];
+    if (!data || !ddOverlay) return;
+    ddEyebrow.textContent = data.eyebrow;
+    ddTitleEl.textContent = data.title;
+    ddFacts.innerHTML = '';
+    data.facts.forEach((f, i) => {
+      const div = document.createElement('div');
+      div.className = 'dd-fact';
+      div.innerHTML = `<span class="dd-fact-num">0${i + 1}</span><span class="dd-fact-text">${f}</span>`;
+      ddFacts.appendChild(div);
+    });
+    ddText.innerHTML = data.paragraphs.map(p => `<p>${p}</p>`).join('');
+    ddOverlay.setAttribute('aria-hidden', 'false');
+    ddOverlay.classList.add('open');
+  }
+
+  function closeDeepDive() {
+    if (!ddOverlay) return;
+    ddOverlay.classList.remove('open');
+    ddOverlay.setAttribute('aria-hidden', 'true');
+  }
+
+  if (ddClose)    ddClose.addEventListener('click', closeDeepDive);
+  if (ddBackdrop) ddBackdrop.addEventListener('click', closeDeepDive);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDeepDive(); });
+
+  document.querySelectorAll('.deep-dive-btn').forEach(btn => {
+    btn.addEventListener('click', () => openDeepDive(btn.dataset.slide));
+    attachCursorHover(btn);
   });
 
   function onSlideEnter(idx) {}

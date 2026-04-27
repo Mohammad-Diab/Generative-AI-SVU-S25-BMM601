@@ -68,6 +68,7 @@
             <div class="slide-inner">
               <div class="slide-eyebrow">٠١ · مقدمة</div>
               <h2 class="slide-title">ما هو الذكاء الاصطناعي التوليدي؟</h2>
+              <button class="deep-dive-btn" data-slide="definition"><span>⬡</span><span>تعمّق أكثر</span></button>
               <button class="test-btn" data-flip="true"><span>▶</span><span>جرّب هذا</span></button>
             </div>
           </div>
@@ -169,6 +170,23 @@
     <button id="btn-next" disabled><span>التالي</span><span>&#8592;</span></button>
   </nav>
 
+</div>
+
+<div id="deep-dive-overlay" aria-modal="true" role="dialog" aria-hidden="true">
+  <div class="dd-backdrop" id="dd-backdrop"></div>
+  <div class="dd-panel">
+    <div class="dd-panel-inner">
+      <div class="dd-header">
+        <div class="dd-eyebrow" id="dd-eyebrow"></div>
+        <button class="dd-close" id="dd-close"><span>ESC</span> إغلاق</button>
+      </div>
+      <h2 class="dd-title" id="dd-title"></h2>
+      <div class="dd-content">
+        <div class="dd-facts-col" id="dd-facts"></div>
+        <div class="dd-text-col" id="dd-text"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="scroll-bar-wrap">
