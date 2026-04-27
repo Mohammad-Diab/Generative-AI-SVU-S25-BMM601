@@ -62,103 +62,313 @@
     </article>
 
     <article class="slide" data-index="1">
-      <div class="card-wrap">
-        <div class="card">
-          <div class="card-face card-front">
-            <div class="slide-inner">
-              <div class="slide-eyebrow">٠١ · مقدمة</div>
-              <h2 class="slide-title">ما هو الذكاء الاصطناعي التوليدي؟</h2>
-              <button class="deep-dive-btn" data-slide="definition"><span>⬡</span><span>تعمّق أكثر</span></button>
-              <button class="test-btn" data-flip="true"><span>▶</span><span>جرّب هذا</span></button>
-            </div>
+      <div class="slide-inner slide-inner--definition">
+        <section class="genesis-orbit" aria-label="مخطط دائري">
+          <div class="orbit-core"><span>مخطط</span></div>
+          <div class="orbit-ring orbit-ring--outer"></div>
+          <div class="orbit-ring orbit-ring--inner"></div>
+          <div class="orbit-chip orbit-chip--one">نص</div>
+          <div class="orbit-chip orbit-chip--two">صورة</div>
+          <div class="orbit-chip orbit-chip--three">صوت</div>
+          <div class="orbit-chip orbit-chip--four">فيديو</div>
+          <div class="media-brief">مخطط بصري: علاقة الذكاء التوليدي بأنواع الوسائط</div>
+        </section>
+        <section class="placeholder-panel definition-panel">
+          <div class="slide-eyebrow">٠١ · مقدمة</div>
+          <h2 class="slide-title">ما هو الذكاء الاصطناعي التوليدي؟</h2>
+          <span class="placeholder-label">نص: تعريف مختصر</span>
+          <div class="text-placeholder text-placeholder--wide"></div>
+          <span class="placeholder-label">نص: أمثلة سريعة</span>
+          <div class="text-placeholder"></div>
+          <div class="mini-placeholder-grid">
+            <span></span><span></span><span></span>
           </div>
-          <div class="card-face card-back">
-            <div class="slide-inner">
-              <div class="back-header">
-                <button class="btn-back"><span>&#8594;</span><span>رجوع</span></button>
-                <div class="slide-eyebrow">٠١ · تجربة</div>
-              </div>
-              <h2 class="slide-title">الوجه الخلفي</h2>
-            </div>
+          <div class="action-row">
+            <button class="deep-dive-btn" data-slide="definition" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <article class="slide" data-index="2">
+      <div class="slide-inner slide-inner--diffusion">
+        <header class="layout-header">
+          <div class="slide-eyebrow">٠٢ · الآلية</div>
+          <h2 class="slide-title">كيف يعمل؟ نماذج الانتشار</h2>
+        </header>
+        <div class="diffusion-lab">
+          <div class="diffusion-step diffusion-step--noise"><span></span><strong>صورة: ضوضاء</strong></div>
+          <div class="diffusion-arrow">←</div>
+          <div class="diffusion-step diffusion-step--rough"><span></span><strong>صورة: كتلة أولية</strong></div>
+          <div class="diffusion-arrow">←</div>
+          <div class="diffusion-step diffusion-step--shape"><span></span><strong>صورة: شكل عام</strong></div>
+          <div class="diffusion-arrow">←</div>
+          <div class="diffusion-step diffusion-step--detail"><span></span><strong>صورة: تفاصيل</strong></div>
+          <div class="diffusion-arrow">←</div>
+          <div class="diffusion-step diffusion-step--clean"><span></span><strong>صورة: نتيجة</strong></div>
+        </div>
+        <div class="placeholder-panel process-note">
+          <span>نص: شرح مختصر لمسار إزالة الضوضاء</span>
+          <div class="text-placeholder text-placeholder--wide"></div>
+          <div class="text-placeholder"></div>
+          <div class="action-row">
+            <button class="deep-dive-btn" data-slide="diffusion" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
           </div>
         </div>
       </div>
     </article>
 
-    <article class="slide" data-index="2">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٢ · الآلية</div>
-        <h2 class="slide-title">كيف يعمل؟ نماذج الانتشار</h2>
-      </div>
-    </article>
-
     <article class="slide" data-index="3">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٣ · البنية</div>
-        <h2 class="slide-title">الشبكات التوليدية التعاكسية — GANs</h2>
+      <div class="slide-inner slide-inner--gan">
+        <header class="layout-header">
+          <div class="slide-eyebrow">٠٣ · البنية</div>
+          <h2 class="slide-title">الشبكات التوليدية التعاكسية — GANs</h2>
+        </header>
+        <div class="gan-arena">
+          <section class="gan-side gan-side--generator">
+            <div class="gan-icon">✦</div>
+            <h3>مخطط: المولّد</h3>
+            <span class="placeholder-label">نص: دوره في إنشاء العينة</span>
+            <div class="text-placeholder"></div>
+            <div class="gan-meter"><span></span></div>
+          </section>
+          <div class="gan-vs">مقابل</div>
+          <section class="gan-side gan-side--judge">
+            <div class="gan-icon">◈</div>
+            <h3>مخطط: المميّز</h3>
+            <span class="placeholder-label">نص: دوره في كشف العينة</span>
+            <div class="text-placeholder"></div>
+            <div class="gan-meter"><span></span></div>
+          </section>
+        </div>
+        <div class="action-row">
+          <button class="deep-dive-btn" data-slide="gans" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="4">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٤ · اللغة</div>
-        <h2 class="slide-title">نماذج اللغة الكبيرة — توليد النصوص</h2>
+      <div class="slide-inner slide-inner--llm">
+        <header class="layout-header">
+          <div class="slide-eyebrow">٠٤ · اللغة</div>
+          <h2 class="slide-title">نماذج اللغة الكبيرة — توليد النصوص</h2>
+        </header>
+        <div class="token-river" aria-label="حزام رموز">
+          <span>نص إدخال</span><span>→</span><span>رموز</span><span>→</span><span>احتمالات</span><span>→</span><span>رمز تالٍ</span><span>→</span><span>نص ناتج</span>
+        </div>
+        <div class="llm-stack">
+          <div><strong>نص</strong><span>فكرة النموذج اللغوي</span></div>
+          <div><strong>رسم</strong><span>طبقات Transformer</span></div>
+          <div><strong>مخطط</strong><span>توقع الرمز التالي</span></div>
+        </div>
+        <div class="action-row">
+          <button class="deep-dive-btn" data-slide="llm" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="5">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٥ · الصورة</div>
-        <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
+      <div class="slide-inner slide-inner--image">
+        <div class="image-stage">
+          <div class="media-skeleton image-canvas"><span>صورة: مثال ناتج من وصف نصي</span></div>
+          <div class="prompt-strip">
+            <span>نص: الوصف المستخدم لتوليد الصورة</span>
+            <div class="text-placeholder text-placeholder--wide"></div>
+          </div>
+        </div>
+        <aside class="placeholder-panel image-console">
+          <div class="slide-eyebrow">٠٥ · الصورة</div>
+          <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
+          <div class="tool-list">
+            <span><b>أداة</b><small>اسم أداة توليد صور</small></span>
+            <span><b>إعداد</b><small>النمط أو الجودة</small></span>
+            <span><b>ملاحظة</b><small>حدود وحقوق الاستخدام</small></span>
+          </div>
+          <div class="action-row">
+            <button class="deep-dive-btn" data-slide="image" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+            <button class="test-btn" data-demo="forge" type="button"><span>▶</span><span>جرّب هذا</span></button>
+          </div>
+        </aside>
       </div>
     </article>
 
     <article class="slide" data-index="6">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٦ · الصوت</div>
-        <h2 class="slide-title">توليد الصوت والموسيقى</h2>
+      <div class="slide-inner slide-inner--audio">
+        <header class="layout-header">
+          <div class="slide-eyebrow">٠٦ · الصوت</div>
+          <h2 class="slide-title">توليد الصوت والموسيقى</h2>
+        </header>
+        <div class="waveform-board" aria-label="موجة صوتية">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="audio-modes">
+          <span>صوت: عينة كلام مولّد</span>
+          <span>صوت: مقطع موسيقي قصير</span>
+          <span>نص: وصف النبرة</span>
+          <span>مخطط: موجة الصوت</span>
+        </div>
+        <div class="action-row">
+          <button class="deep-dive-btn" data-slide="audio" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+          <button class="test-btn" data-demo="tts" type="button"><span>▶</span><span>جرّب هذا</span></button>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="7">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٧ · الفيديو</div>
-        <h2 class="slide-title">توليد الفيديو بالذكاء الاصطناعي</h2>
+      <div class="slide-inner slide-inner--video">
+        <div class="cinema-frame">
+          <div class="film-dots film-dots--top"></div>
+          <div class="media-skeleton video-canvas"><span>فيديو: مشهد قصير مولّد من وصف</span></div>
+          <div class="film-dots film-dots--bottom"></div>
+        </div>
+        <div class="video-caption">
+          <div>
+            <div class="slide-eyebrow">٠٧ · الفيديو</div>
+            <h2 class="slide-title">توليد الفيديو بالذكاء الاصطناعي</h2>
+          </div>
+          <div class="video-tools">
+            <span>نص: وصف المشهد</span><span>وسيط: إطار معاينة</span><span>نص: مدة الفيديو</span>
+          </div>
+          <div class="action-row">
+            <button class="deep-dive-btn" data-slide="video" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+            <button class="test-btn" data-demo="video" type="button"><span>▶</span><span>جرّب هذا</span></button>
+          </div>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="8">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٨ · التطوير والبرمجة</div>
-        <h2 class="slide-title">الذكاء الاصطناعي في بناء البرمجيات</h2>
+      <div class="slide-inner slide-inner--dev">
+        <section class="dev-terminal">
+          <div class="terminal-bar"><span></span><span></span><span></span></div>
+          <div class="terminal-lines">
+            <span>كود: طلب برمجي</span>
+            <span>كود: اقتراح النموذج</span>
+            <span>كود: نتيجة المراجعة</span>
+            <strong>▌</strong>
+          </div>
+        </section>
+        <section class="placeholder-panel dev-panel">
+          <div class="slide-eyebrow">٠٨ · التطوير والبرمجة</div>
+          <h2 class="slide-title">الذكاء الاصطناعي في بناء البرمجيات</h2>
+          <div class="dev-cards">
+            <div><strong>نص</strong><span>حالة استخدام</span></div>
+            <div><strong>مخطط</strong><span>دورة عمل المطور</span></div>
+            <div><strong>كود</strong><span>مثال قصير</span></div>
+          </div>
+          <div class="action-row">
+            <button class="deep-dive-btn" data-slide="dev" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+            <button class="test-btn" data-demo="code" type="button"><span>▶</span><span>جرّب هذا</span></button>
+          </div>
+        </section>
       </div>
     </article>
 
     <article class="slide" data-index="9">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">٠٩ · النماذج</div>
-        <h2 class="slide-title">أبرز نماذج وأدوات الذكاء الاصطناعي</h2>
+      <div class="slide-inner slide-inner--models">
+        <header class="models-header">
+          <div>
+            <div class="slide-eyebrow">٠٩ · النماذج</div>
+            <h2 class="slide-title">أبرز نماذج وأدوات الذكاء الاصطناعي</h2>
+          </div>
+          <div class="legend-row">
+            <span>لغة</span><span>صورة</span><span>صوت</span><span>فيديو</span>
+          </div>
+        </header>
+        <div class="model-grid">
+          <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="text"><strong>نموذج متعدد</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="audio"><strong>أداة صوت</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
+          <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
+        </div>
+        <div class="action-row">
+          <button class="deep-dive-btn" data-slide="tools" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="10">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">١٠ · الميزان</div>
-        <h2 class="slide-title">القدرة والمسؤولية</h2>
+      <div class="slide-inner slide-inner--scale">
+        <header class="layout-header">
+          <div class="slide-eyebrow">١٠ · الميزان</div>
+          <h2 class="slide-title">القدرة والمسؤولية</h2>
+        </header>
+        <div class="scale-board">
+          <section class="scale-pan scale-pan--benefits">
+            <h3>نص: فرص وفوائد</h3>
+            <div class="text-placeholder text-placeholder--wide"></div>
+            <div class="text-placeholder"></div>
+            <div class="text-placeholder text-placeholder--short"></div>
+          </section>
+          <div class="scale-axis">
+            <span></span>
+            <strong>مخطط ميزان</strong>
+          </div>
+          <section class="scale-pan scale-pan--risks">
+            <h3>نص: مخاطر ومسؤوليات</h3>
+            <div class="text-placeholder text-placeholder--wide"></div>
+            <div class="text-placeholder"></div>
+            <div class="text-placeholder text-placeholder--short"></div>
+          </section>
+        </div>
+        <div class="action-row">
+          <button class="test-btn" data-demo="scale" type="button"><span>▶</span><span>جرّب هذا</span></button>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="11">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">١١ · الأخلاق والمستقبل</div>
-        <h2 class="slide-title">مع القوة تأتي المسؤولية</h2>
+      <div class="slide-inner slide-inner--ethics">
+        <header class="layout-header">
+          <div class="slide-eyebrow">١١ · الأخلاق والمستقبل</div>
+          <h2 class="slide-title">مع القوة تأتي المسؤولية</h2>
+        </header>
+        <div class="ethics-cards">
+          <div><span>أيقونة</span><strong>نص: الانحياز</strong><p></p></div>
+          <div><span>أيقونة</span><strong>نص: الملكية</strong><p></p></div>
+          <div><span>أيقونة</span><strong>نص: التزييف</strong><p></p></div>
+        </div>
+        <div class="timeline-strip">
+          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
+          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
+          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
+          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
+          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
+        </div>
+        <div class="action-row">
+          <button class="deep-dive-btn" data-slide="ethics" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+        </div>
       </div>
     </article>
 
     <article class="slide" data-index="12">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">١٢ · الخاتمة</div>
-        <h2 class="slide-title">ماذا تعلّمت؟</h2>
+      <div class="slide-inner slide-inner--quiz">
+        <header class="layout-header">
+          <div class="slide-eyebrow">١٢ · الخاتمة</div>
+          <h2 class="slide-title">ماذا تعلّمت؟</h2>
+        </header>
+        <div class="quiz-question">
+          <span>نص: سؤال مراجعة</span>
+          <div class="text-placeholder text-placeholder--wide"></div>
+        </div>
+        <div class="answer-grid">
+          <div>نص: إجابة اختيارية</div>
+          <div>نص: إجابة اختيارية</div>
+          <div>نص: إجابة اختيارية</div>
+          <div>نص: إجابة اختيارية</div>
+        </div>
+        <div class="quiz-footer">
+          <span>مخطط: مؤشر تقدم</span>
+          <div class="quiz-progress"><span></span></div>
+          <button class="test-btn" data-demo="quiz" type="button"><span>▶</span><span>جرّب هذا</span></button>
+        </div>
       </div>
     </article>
 
