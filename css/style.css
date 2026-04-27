@@ -258,6 +258,23 @@ img, video {
   border-radius: 0 2px 2px 0;
 }
 
+.slide-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.slide-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  color: var(--cream);
+  line-height: 1.28;
+}
+
 .slide-inner--cover {
   justify-content: space-between;
   padding: 40px 60px;
