@@ -183,110 +183,174 @@
     </article>
 
     <article class="slide" data-index="5">
-      <div class="slide-inner slide-inner--image">
-        <div class="image-header-row">
-          <div>
-            <div class="slide-eyebrow">٠٥ · الصورة</div>
-            <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
+      <div class="card-wrap">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="slide-inner slide-inner--image">
+              <div class="image-header-row">
+                <div>
+                  <div class="slide-eyebrow">٠٥ · الصورة</div>
+                  <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
+                </div>
+                <div class="prompt-bar">
+                  <span class="prompt-icon">✦</span>
+                  <div class="prompt-fill"></div>
+                  <span class="prompt-label">نص: الوصف</span>
+                </div>
+              </div>
+              <div class="image-trio">
+                <div class="image-card">
+                  <div class="media-skeleton image-slot"><span>صورة: ناتج Midjourney</span></div>
+                  <div class="image-card-label">Midjourney</div>
+                </div>
+                <div class="image-card image-card--featured">
+                  <div class="media-skeleton image-slot"><span>صورة: ناتج DALL-E</span></div>
+                  <div class="image-card-label">DALL-E</div>
+                </div>
+                <div class="image-card">
+                  <div class="media-skeleton image-slot"><span>صورة: ناتج Stable Diffusion</span></div>
+                  <div class="image-card-label">Stable Diffusion</div>
+                </div>
+              </div>
+              <div class="action-row">
+                <button class="deep-dive-btn" data-slide="image" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+                <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+              </div>
+            </div>
           </div>
-          <div class="prompt-bar">
-            <span class="prompt-icon">✦</span>
-            <div class="prompt-fill"></div>
-            <span class="prompt-label">نص: الوصف</span>
+          <div class="card-face card-back">
+            <div class="slide-inner">
+              <div class="back-header">
+                <button class="btn-back"><span>→</span><span>رجوع</span></button>
+                <div class="slide-eyebrow">٠٥ · تجربة</div>
+              </div>
+              <canvas id="forge-canvas" class="back-canvas"></canvas>
+            </div>
           </div>
-        </div>
-        <div class="image-trio">
-          <div class="image-card">
-            <div class="media-skeleton image-slot"><span>صورة: ناتج Midjourney</span></div>
-            <div class="image-card-label">Midjourney</div>
-          </div>
-          <div class="image-card image-card--featured">
-            <div class="media-skeleton image-slot"><span>صورة: ناتج DALL-E</span></div>
-            <div class="image-card-label">DALL-E</div>
-          </div>
-          <div class="image-card">
-            <div class="media-skeleton image-slot"><span>صورة: ناتج Stable Diffusion</span></div>
-            <div class="image-card-label">Stable Diffusion</div>
-          </div>
-        </div>
-        <div class="action-row">
-          <button class="deep-dive-btn" data-slide="image" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
-          <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
         </div>
       </div>
     </article>
 
     <article class="slide" data-index="6">
-      <div class="slide-inner slide-inner--audio">
-        <header class="layout-header">
-          <div class="slide-eyebrow">٠٦ · الصوت</div>
-          <h2 class="slide-title">توليد الصوت والموسيقى</h2>
-        </header>
-        <div class="waveform-board" aria-label="موجة صوتية">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="audio-modes">
-          <span>صوت: عينة كلام مولّد</span>
-          <span>صوت: مقطع موسيقي قصير</span>
-          <span>نص: وصف النبرة</span>
-          <span>مخطط: موجة الصوت</span>
-        </div>
-        <div class="action-row">
-          <button class="deep-dive-btn" data-slide="audio" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
-          <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+      <div class="card-wrap">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="slide-inner slide-inner--audio">
+              <header class="layout-header">
+                <div class="slide-eyebrow">٠٦ · الصوت</div>
+                <h2 class="slide-title">توليد الصوت والموسيقى</h2>
+              </header>
+              <div class="breath-stage">
+                <div class="breath-core">
+                  <div class="breath-ring"></div>
+                  <div class="breath-ring"></div>
+                  <div class="breath-ring"></div>
+                  <div class="breath-ring"></div>
+                  <div class="breath-ring"></div>
+                  <canvas id="breath-canvas"></canvas>
+                  <div class="breath-label">نفَس</div>
+                </div>
+                <div class="breath-controls">
+                  <button class="breath-mic-btn" id="btn-mic-enable" type="button"><span>🎙</span><span>السماع للميكروفون</span></button>
+                  <button class="breath-sample-btn" id="btn-breath-sample" type="button"><span>▶</span><span>تشغيل عينة</span></button>
+                </div>
+              </div>
+              <div class="action-row">
+                <button class="deep-dive-btn" data-slide="audio" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+                <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="card-face card-back">
+            <div class="slide-inner">
+              <div class="back-header">
+                <button class="btn-back"><span>→</span><span>رجوع</span></button>
+                <div class="slide-eyebrow">٠٦ · تجربة</div>
+              </div>
+              <canvas id="tts-canvas" class="back-canvas"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </article>
 
     <article class="slide" data-index="7">
-      <div class="slide-inner slide-inner--video">
-        <div class="cinema-frame">
-          <div class="film-dots film-dots--top"></div>
-          <div class="media-skeleton video-canvas"><span>فيديو: مشهد قصير مولّد من وصف</span></div>
-          <div class="film-dots film-dots--bottom"></div>
-        </div>
-        <div class="video-caption">
-          <div>
-            <div class="slide-eyebrow">٠٧ · الفيديو</div>
-            <h2 class="slide-title">توليد الفيديو بالذكاء الاصطناعي</h2>
+      <div class="card-wrap">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="slide-inner slide-inner--video">
+              <div class="cinema-frame">
+                <div class="film-dots film-dots--top"></div>
+                <div class="media-skeleton video-canvas"><span>فيديو: مشهد قصير مولّد من وصف</span></div>
+                <div class="film-dots film-dots--bottom"></div>
+              </div>
+              <div class="video-caption">
+                <div>
+                  <div class="slide-eyebrow">٠٧ · الفيديو</div>
+                  <h2 class="slide-title">توليد الفيديو بالذكاء الاصطناعي</h2>
+                </div>
+                <div class="video-tools">
+                  <span>نص: وصف المشهد</span><span>وسيط: إطار معاينة</span><span>نص: مدة الفيديو</span>
+                </div>
+                <div class="action-row">
+                  <button class="deep-dive-btn" data-slide="video" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+                  <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="video-tools">
-            <span>نص: وصف المشهد</span><span>وسيط: إطار معاينة</span><span>نص: مدة الفيديو</span>
-          </div>
-          <div class="action-row">
-            <button class="deep-dive-btn" data-slide="video" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
-            <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+          <div class="card-face card-back">
+            <div class="slide-inner">
+              <div class="back-header">
+                <button class="btn-back"><span>→</span><span>رجوع</span></button>
+                <div class="slide-eyebrow">٠٧ · تجربة</div>
+              </div>
+              <canvas id="video-canvas" class="back-canvas"></canvas>
+            </div>
           </div>
         </div>
       </div>
     </article>
 
     <article class="slide" data-index="8">
-      <div class="slide-inner slide-inner--dev">
-        <section class="dev-terminal">
-          <div class="terminal-bar"><span></span><span></span><span></span></div>
-          <div class="terminal-lines">
-            <span>كود: طلب برمجي</span>
-            <span>كود: اقتراح النموذج</span>
-            <span>كود: نتيجة المراجعة</span>
-            <strong>▌</strong>
+      <div class="card-wrap">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="slide-inner slide-inner--dev">
+              <section class="dev-terminal">
+                <div class="terminal-bar"><span></span><span></span><span></span></div>
+                <div class="terminal-lines">
+                  <span>كود: طلب برمجي</span>
+                  <span>كود: اقتراح النموذج</span>
+                  <span>كود: نتيجة المراجعة</span>
+                  <strong>▌</strong>
+                </div>
+              </section>
+              <section class="placeholder-panel dev-panel">
+                <div class="slide-eyebrow">٠٨ · التطوير والبرمجة</div>
+                <h2 class="slide-title">الذكاء الاصطناعي في بناء البرمجيات</h2>
+                <div class="dev-cards">
+                  <div><strong>نص</strong><span>حالة استخدام</span></div>
+                  <div><strong>مخطط</strong><span>دورة عمل المطور</span></div>
+                  <div><strong>كود</strong><span>مثال قصير</span></div>
+                </div>
+                <div class="action-row">
+                  <button class="deep-dive-btn" data-slide="dev" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+                  <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+                </div>
+              </section>
+            </div>
           </div>
-        </section>
-        <section class="placeholder-panel dev-panel">
-          <div class="slide-eyebrow">٠٨ · التطوير والبرمجة</div>
-          <h2 class="slide-title">الذكاء الاصطناعي في بناء البرمجيات</h2>
-          <div class="dev-cards">
-            <div><strong>نص</strong><span>حالة استخدام</span></div>
-            <div><strong>مخطط</strong><span>دورة عمل المطور</span></div>
-            <div><strong>كود</strong><span>مثال قصير</span></div>
+          <div class="card-face card-back">
+            <div class="slide-inner">
+              <div class="back-header">
+                <button class="btn-back"><span>→</span><span>رجوع</span></button>
+                <div class="slide-eyebrow">٠٨ · تجربة</div>
+              </div>
+              <canvas id="code-canvas" class="back-canvas"></canvas>
+            </div>
           </div>
-          <div class="action-row">
-            <button class="deep-dive-btn" data-slide="dev" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
-            <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
-          </div>
-        </section>
+        </div>
       </div>
     </article>
 
@@ -335,17 +399,17 @@
           <h2 class="slide-title">القدرة والمسؤولية</h2>
         </header>
         <div class="scale-board">
-          <section class="scale-pan scale-pan--benefits">
+          <section class="scale-pan scale-pan--benefits" id="scale-pan-benefits">
             <h3>نص: فرص وفوائد</h3>
             <div class="text-placeholder text-placeholder--wide"></div>
             <div class="text-placeholder"></div>
             <div class="text-placeholder text-placeholder--short"></div>
           </section>
-          <div class="scale-axis">
+          <div class="scale-axis" id="scale-axis">
             <span></span>
             <strong>مخطط ميزان</strong>
           </div>
-          <section class="scale-pan scale-pan--risks">
+          <section class="scale-pan scale-pan--risks" id="scale-pan-risks">
             <h3>نص: مخاطر ومسؤوليات</h3>
             <div class="text-placeholder text-placeholder--wide"></div>
             <div class="text-placeholder"></div>
@@ -353,7 +417,7 @@
           </section>
         </div>
         <div class="action-row">
-          <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+          <button class="test-btn" id="btn-scale-run" type="button"><span>▶</span><span>شغّل الميزان</span></button>
         </div>
       </div>
     </article>
@@ -394,33 +458,48 @@
     </article>
 
     <article class="slide" data-index="12">
-      <div class="slide-inner slide-inner--quiz slide-inner--ethics-close">
-        <header class="layout-header">
-          <div class="slide-eyebrow">١٢ · الأخلاق والخاتمة</div>
-          <h2 class="slide-title">مع القوة تأتي المسؤولية — ماذا تعلّمت؟</h2>
-        </header>
-        <div class="ethics-cards ethics-cards--compact">
-          <div><span>أيقونة</span><strong>نص: الانحياز</strong><p></p></div>
-          <div><span>أيقونة</span><strong>نص: الملكية</strong><p></p></div>
-          <div><span>أيقونة</span><strong>نص: التزييف</strong><p></p></div>
-        </div>
-        <div class="conclusion-quiz-zone">
-          <div class="quiz-question">
-            <span>نص: سؤال مراجعة</span>
-            <div class="text-placeholder text-placeholder--wide"></div>
+      <div class="card-wrap">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="slide-inner slide-inner--quiz slide-inner--ethics-close">
+              <header class="layout-header">
+                <div class="slide-eyebrow">١٢ · الأخلاق والخاتمة</div>
+                <h2 class="slide-title">مع القوة تأتي المسؤولية — ماذا تعلّمت؟</h2>
+              </header>
+              <div class="ethics-cards ethics-cards--compact">
+                <div><span>أيقونة</span><strong>نص: الانحياز</strong><p></p></div>
+                <div><span>أيقونة</span><strong>نص: الملكية</strong><p></p></div>
+                <div><span>أيقونة</span><strong>نص: التزييف</strong><p></p></div>
+              </div>
+              <div class="conclusion-quiz-zone">
+                <div class="quiz-question">
+                  <span>نص: سؤال مراجعة</span>
+                  <div class="text-placeholder text-placeholder--wide"></div>
+                </div>
+                <div class="answer-grid">
+                  <div>نص: إجابة اختيارية</div>
+                  <div>نص: إجابة اختيارية</div>
+                  <div>نص: إجابة اختيارية</div>
+                  <div>نص: إجابة اختيارية</div>
+                </div>
+              </div>
+              <div class="quiz-footer">
+                <span>مخطط: مؤشر تقدم</span>
+                <div class="quiz-progress"><span></span></div>
+                <button class="deep-dive-btn" data-slide="ethics" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+                <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+              </div>
+            </div>
           </div>
-          <div class="answer-grid">
-            <div>نص: إجابة اختيارية</div>
-            <div>نص: إجابة اختيارية</div>
-            <div>نص: إجابة اختيارية</div>
-            <div>نص: إجابة اختيارية</div>
+          <div class="card-face card-back">
+            <div class="slide-inner">
+              <div class="back-header">
+                <button class="btn-back"><span>→</span><span>رجوع</span></button>
+                <div class="slide-eyebrow">١٢ · اختبر معلوماتك</div>
+              </div>
+              <div id="quiz-zone" class="back-canvas media-skeleton"><span>نص: الاختبار التفاعلي</span></div>
+            </div>
           </div>
-        </div>
-        <div class="quiz-footer">
-          <span>مخطط: مؤشر تقدم</span>
-          <div class="quiz-progress"><span></span></div>
-          <button class="deep-dive-btn" data-slide="ethics" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
-          <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
         </div>
       </div>
     </article>

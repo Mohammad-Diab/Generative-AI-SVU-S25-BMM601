@@ -596,6 +596,129 @@
     attachCursorHover(btn);
   });
 
+  (function () {
+    const core    = document.querySelector('.breath-core');
+    const cvs     = document.getElementById('breath-canvas');
+    if (!core || !cvs) return;
+    const ctx     = cvs.getContext('2d');
+    const micBtn  = document.getElementById('btn-mic-enable');
+    const mockBtn = document.getElementById('btn-breath-sample');
+
+    cvs.width  = 400;
+    cvs.height = 400;
+
+    let analyser    = null;
+    let analyserBuf = null;
+    let mockMode    = false;
+
+    if (micBtn) {
+      micBtn.addEventListener('click', async () => {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          const actx = new (window.AudioContext || window.webkitAudioContext)();
+          const src  = actx.createMediaStreamSource(stream);
+          analyser    = actx.createAnalyser();
+          analyser.fftSize = 512;
+          analyserBuf = new Uint8Array(analyser.fftSize);
+          src.connect(analyser);
+          core.classList.add('reactive');
+          micBtn.querySelector('span:last-child').textContent = 'الميكروفون مفعّل';
+          micBtn.disabled = true;
+        } catch {
+          micBtn.querySelector('span:last-child').textContent = '❌ رُفض — تستخدم عيّنة';
+          mockMode = true;
+          core.classList.add('reactive');
+        }
+      });
+    }
+
+    if (mockBtn) {
+      mockBtn.addEventListener('click', () => {
+        mockMode = true;
+        core.classList.add('reactive');
+      });
+    }
+
+    (function tick() {
+      requestAnimationFrame(tick);
+      let v = 0;
+      if (analyser) {
+        analyser.getByteTimeDomainData(analyserBuf);
+        let sum = 0;
+        for (let i = 0; i < analyserBuf.length; i++) {
+          const d = (analyserBuf[i] - 128) / 128;
+          sum += d * d;
+        }
+        v = Math.min(Math.sqrt(sum / analyserBuf.length) * 3, 1);
+      } else if (mockMode) {
+        const t = performance.now() / 1000;
+        v = 0.25 + 0.25 * Math.sin(t * 0.8) + 0.15 * Math.sin(t * 2.3) + 0.1 * Math.sin(t * 4.1);
+        v = Math.max(0, Math.min(1, v));
+      }
+
+      const W  = cvs.width, H = cvs.height;
+      const cx = W / 2, cy = H / 2;
+      ctx.clearRect(0, 0, W, H);
+
+      const N = 64;
+      const R = (0.24 + 0.08 * v) * Math.min(W, H);
+      const t = performance.now() / 1000;
+
+      for (let i = 0; i < N; i++) {
+        const a  = (i / N) * Math.PI * 2;
+        const rr = R * (1 + 0.15 * Math.sin(a * 5 + t * 2) + 0.25 * v * Math.sin(a * 3 - t * 3));
+        const x  = cx + Math.cos(a) * rr;
+        const y  = cy + Math.sin(a) * rr;
+        const hue = 175 - ((Math.sin(a * 2.5 + t * 0.8) + 1) / 2) * 133;
+        ctx.beginPath();
+        ctx.arc(x, y, 2 + v * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${hue}, 80%, 65%, ${0.6 + 0.3 * v})`;
+        ctx.fill();
+      }
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, R * 0.7, 0, Math.PI * 2);
+      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+      grd.addColorStop(0, `hsla(175, 80%, 62%, ${0.2 + 0.25 * v})`);
+      grd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = grd;
+      ctx.fill();
+    })();
+  })();
+
+  (function () {
+    const scaleBtn    = document.getElementById('btn-scale-run');
+    const scaleAxis   = document.getElementById('scale-axis');
+    const panBenefits = document.getElementById('scale-pan-benefits');
+    const panRisks    = document.getElementById('scale-pan-risks');
+    if (!scaleBtn || !scaleAxis) return;
+
+    let running = false;
+
+    const setTilt = (deg, bY, rY) => {
+      scaleAxis.style.setProperty('--scale-tilt', deg + 'deg');
+      if (panBenefits) panBenefits.style.transform = `translateY(${bY}rem)`;
+      if (panRisks)    panRisks.style.transform    = `translateY(${rY}rem)`;
+    };
+
+    scaleBtn.addEventListener('click', () => {
+      if (running) return;
+      running = true;
+      scaleBtn.disabled = true;
+
+      setTilt(0, 0, 0);
+      setTimeout(() => setTilt(16, -1.8, 1.8),  120);
+      setTimeout(() => setTilt(-20, 2.2, -2.2), 1100);
+      setTimeout(() => setTilt(10, -1.1, 1.1),  2200);
+      setTimeout(() => setTilt(-4, 0.4, -0.4),  3100);
+      setTimeout(() => {
+        setTilt(-7, 0, 0);
+        running = false;
+        scaleBtn.disabled = false;
+      }, 4000);
+    });
+  })();
+
   function onSlideEnter(idx) {}
 
   updateNav();
