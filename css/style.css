@@ -974,6 +974,7 @@ img, video {
 .slide-inner--models,
 .slide-inner--scale,
 .slide-inner--ethics,
+.slide-inner--future,
 .slide-inner--quiz {
   overflow: hidden;
 }
@@ -1499,6 +1500,66 @@ img, video {
   font-size: 0.78rem;
 }
 
+.future-board {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(18rem, 1.2fr) minmax(14rem, 0.8fr);
+  gap: 1rem;
+  min-height: 0;
+}
+
+.future-visual {
+  min-height: 17rem;
+}
+
+.future-notes {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.future-notes > div {
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 20% 20%, var(--teal-soft), var(--clear) 40%),
+    color-mix(in srgb, var(--navy-mid) 74%, var(--clear));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.future-notes strong {
+  font-family: var(--font-display);
+  color: var(--cream);
+}
+
+.future-notes span {
+  color: var(--cream-dim);
+  font-size: 0.82rem;
+}
+
+.slide-inner--ethics-close {
+  gap: 1rem;
+}
+
+.ethics-cards--compact > div {
+  min-height: 8.4rem;
+}
+
+.conclusion-quiz-zone {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.8fr) minmax(16rem, 1.2fr);
+  gap: 1rem;
+  min-height: 0;
+}
+
+.slide-inner--ethics-close .quiz-question {
+  min-height: 100%;
+}
+
 .timeline-strip {
   flex: 1;
   display: grid;
@@ -1626,6 +1687,8 @@ img, video {
   .slide-inner--definition,
   .slide-inner--image,
   .slide-inner--dev,
+  .future-board,
+  .conclusion-quiz-zone,
   .gan-arena,
   .scale-board {
     grid-template-columns: 1fr;
