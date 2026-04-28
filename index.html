@@ -153,13 +153,28 @@
           <div class="slide-eyebrow">٠٤ · اللغة</div>
           <h2 class="slide-title">نماذج اللغة الكبيرة — توليد النصوص</h2>
         </header>
-        <div class="token-river" aria-label="حزام رموز">
-          <span>نص إدخال</span><span>→</span><span>رموز</span><span>→</span><span>احتمالات</span><span>→</span><span>رمز تالٍ</span><span>→</span><span>نص ناتج</span>
-        </div>
-        <div class="llm-stack">
-          <div><strong>نص</strong><span>فكرة النموذج اللغوي</span></div>
-          <div><strong>رسم</strong><span>طبقات Transformer</span></div>
-          <div><strong>مخطط</strong><span>توقع الرمز التالي</span></div>
+        <div class="llm-pipeline">
+          <div class="llm-col llm-col--input">
+            <div class="llm-col-label">نص: مدخلات</div>
+            <div class="llm-token">نص: رمز ١</div>
+            <div class="llm-token">نص: رمز ٢</div>
+            <div class="llm-token">نص: رمز ٣</div>
+            <div class="llm-token llm-token--faded">نص: رمز ٤</div>
+          </div>
+          <div class="llm-arrow">←</div>
+          <div class="llm-blackbox">
+            <div class="llm-blackbox-label">النموذج</div>
+            <div class="llm-layers"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="llm-blackbox-sub">نص: طبقات Transformer</div>
+          </div>
+          <div class="llm-arrow">←</div>
+          <div class="llm-col llm-col--output">
+            <div class="llm-col-label">نص: احتمالات</div>
+            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:72%"></div></div><small>نص: كلمة أ</small></div>
+            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:48%"></div></div><small>نص: كلمة ب</small></div>
+            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:31%"></div></div><small>نص: كلمة ج</small></div>
+            <div class="llm-prob llm-prob--selected"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:86%"></div></div><small>نص: كلمة د ✓</small></div>
+          </div>
         </div>
         <div class="action-row">
           <button class="deep-dive-btn" data-slide="llm" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
@@ -169,26 +184,35 @@
 
     <article class="slide" data-index="5">
       <div class="slide-inner slide-inner--image">
-        <div class="image-stage">
-          <div class="media-skeleton image-canvas"><span>صورة: مثال ناتج من وصف نصي</span></div>
-          <div class="prompt-strip">
-            <span>نص: الوصف المستخدم لتوليد الصورة</span>
-            <div class="text-placeholder text-placeholder--wide"></div>
+        <div class="image-header-row">
+          <div>
+            <div class="slide-eyebrow">٠٥ · الصورة</div>
+            <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
+          </div>
+          <div class="prompt-bar">
+            <span class="prompt-icon">✦</span>
+            <div class="prompt-fill"></div>
+            <span class="prompt-label">نص: الوصف</span>
           </div>
         </div>
-        <aside class="placeholder-panel image-console">
-          <div class="slide-eyebrow">٠٥ · الصورة</div>
-          <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
-          <div class="tool-list">
-            <span><b>أداة</b><small>اسم أداة توليد صور</small></span>
-            <span><b>إعداد</b><small>النمط أو الجودة</small></span>
-            <span><b>ملاحظة</b><small>حدود وحقوق الاستخدام</small></span>
+        <div class="image-trio">
+          <div class="image-card">
+            <div class="media-skeleton image-slot"><span>صورة: ناتج Midjourney</span></div>
+            <div class="image-card-label">Midjourney</div>
           </div>
-          <div class="action-row">
-            <button class="deep-dive-btn" data-slide="image" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
-            <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+          <div class="image-card image-card--featured">
+            <div class="media-skeleton image-slot"><span>صورة: ناتج DALL-E</span></div>
+            <div class="image-card-label">DALL-E</div>
           </div>
-        </aside>
+          <div class="image-card">
+            <div class="media-skeleton image-slot"><span>صورة: ناتج Stable Diffusion</span></div>
+            <div class="image-card-label">Stable Diffusion</div>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="deep-dive-btn" data-slide="image" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
+          <button class="test-btn" data-flip="true" type="button"><span>▶</span><span>جرّب هذا</span></button>
+        </div>
       </div>
     </article>
 
@@ -268,25 +292,35 @@
 
     <article class="slide" data-index="9">
       <div class="slide-inner slide-inner--models">
-        <header class="models-header">
-          <div>
-            <div class="slide-eyebrow">٠٩ · النماذج</div>
-            <h2 class="slide-title">أبرز نماذج وأدوات الذكاء الاصطناعي</h2>
-          </div>
-          <div class="legend-row">
-            <span>لغة</span><span>صورة</span><span>صوت</span><span>فيديو</span>
-          </div>
+        <header class="layout-header">
+          <div class="slide-eyebrow">٠٩ · النماذج</div>
+          <h2 class="slide-title">أبرز نماذج وأدوات الذكاء الاصطناعي</h2>
         </header>
-        <div class="model-grid">
-          <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="text"><strong>نموذج متعدد</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="audio"><strong>أداة صوت</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
-          <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
+        <div class="model-landscape">
+          <div class="model-zone model-zone--language">
+            <div class="model-zone-label">لغة</div>
+            <div class="model-zone-cards">
+              <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="text"><strong>نموذج متعدد</strong><span>نص: اسم ووظيفة</span></div>
+            </div>
+          </div>
+          <div class="model-zone model-zone--image">
+            <div class="model-zone-label">صورة</div>
+            <div class="model-zone-cards">
+              <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+            </div>
+          </div>
+          <div class="model-zone model-zone--av">
+            <div class="model-zone-label">صوت وفيديو</div>
+            <div class="model-zone-cards">
+              <div class="model-card" data-cat="audio"><strong>أداة صوت</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
+            </div>
+          </div>
         </div>
         <div class="action-row">
           <button class="deep-dive-btn" data-slide="tools" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
@@ -330,20 +364,31 @@
           <div class="slide-eyebrow">١١ · المستقبل</div>
           <h2 class="slide-title">إلى أين يتجه الذكاء الاصطناعي التوليدي؟</h2>
         </header>
-        <div class="future-board">
-          <div class="media-skeleton future-visual"><span>مخطط: اتجاهات السنوات القادمة</span></div>
-          <div class="future-notes">
-            <div><strong>نص</strong><span>نماذج متعددة الوسائط</span></div>
-            <div><strong>نص</strong><span>وكلاء ينفذون مهام</span></div>
-            <div><strong>نص</strong><span>أدوات إنتاج أسرع</span></div>
+        <div class="future-trends">
+          <div class="trend-card">
+            <div class="trend-icon">◈</div>
+            <strong>نص: نماذج متعددة الوسائط</strong>
+            <div class="text-placeholder"></div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">✦</div>
+            <strong>نص: وكلاء ذكية تنفذ مهام</strong>
+            <div class="text-placeholder"></div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">⬡</div>
+            <strong>نص: أدوات إنتاج أسرع وأرخص</strong>
+            <div class="text-placeholder"></div>
           </div>
         </div>
-        <div class="timeline-strip">
-          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
-          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
-          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
-          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
-          <div><strong>عام</strong><span>مخطط زمني: حدث</span></div>
+        <div class="future-timeline">
+          <div class="timeline-track">
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
+          </div>
         </div>
       </div>
     </article>
