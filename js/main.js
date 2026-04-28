@@ -95,6 +95,8 @@
   let lastSpawnY     = -200;
   let hoveredDotIndex = -1;
   let hoveredButton   = false;
+  let hoveredNavBtn   = false;
+  let hoveredTealBtn  = false;
 
   function resizeCur() {
     curCanvas.width  = window.innerWidth;
@@ -164,7 +166,7 @@
     curCtx.globalAlpha = 1;
 
     const dotHover    = hoveredDotIndex >= 0;
-    const anyHover    = dotHover || hoveredButton;
+    const anyHover    = dotHover || hoveredButton || hoveredNavBtn || hoveredTealBtn;
     const ringTarget  = anyHover ? 26 : 16;
     const alphaTarget = anyHover ? 1  : 0;
     curRingR  += (ringTarget  - curRingR)  * 0.13;
@@ -173,9 +175,16 @@
     const stillAnimating = Math.abs(curRingR - ringTarget) > 0.05 || Math.abs(curHoverA - alphaTarget) > 0.005;
     if (stillAnimating) curDirty = true;
 
-    const r = Math.round(201 + (255 - 201) * curHoverA);
-    const g = Math.round(168 + (220 - 168) * curHoverA);
-    const b = Math.round(76  + (80  - 76)  * curHoverA);
+    let r, g, b;
+    if (hoveredTealBtn) {
+      r = Math.round(201 + (255 - 201) * curHoverA);
+      g = Math.round(168 + (220 - 168) * curHoverA);
+      b = Math.round(76  + (80  - 76)  * curHoverA);
+    } else {
+      r = Math.round(201 + (45  - 201) * curHoverA);
+      g = Math.round(168 + (212 - 168) * curHoverA);
+      b = Math.round(76  + (191 - 76)  * curHoverA);
+    }
     const ringAlpha = 0.45 + 0.4 * curHoverA;
     const ringWidth = 1.2  + 0.6 * curHoverA;
 
@@ -262,13 +271,23 @@
   });
 
   function attachCursorHover(el) {
+    const isTeal = el.classList.contains('deep-dive-btn') || el.classList.contains('breath-mic-btn');
     el.addEventListener('mouseenter', () => {
       if (el.disabled) return;
-      hoveredButton = true; curDirty = true; requestCursorTick();
+      if (isTeal) hoveredTealBtn = true; else hoveredButton = true;
+      curDirty = true; requestCursorTick();
     });
-    el.addEventListener('mouseleave', () => { hoveredButton = false; curDirty = true; requestCursorTick(); });
+    el.addEventListener('mouseleave', () => {
+      if (isTeal) hoveredTealBtn = false; else hoveredButton = false;
+      curDirty = true; requestCursorTick();
+    });
   }
   document.querySelectorAll('button').forEach(attachCursorHover);
+
+  [btnPrev, btnNext].forEach(el => {
+    el.addEventListener('mouseenter', () => { if (!el.disabled) { hoveredNavBtn = true; curDirty = true; requestCursorTick(); } });
+    el.addEventListener('mouseleave', () => { hoveredNavBtn = false; curDirty = true; requestCursorTick(); });
+  });
 
   function updateNav() {
     btnPrev.disabled = currentIdx === 0;
