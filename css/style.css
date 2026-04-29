@@ -2701,3 +2701,21 @@ img, video {
   font-size: 0.82rem;
   color: var(--cream-dim);
 }
+
+/* ── Brand Logo Animations ─────────────────────── */
+@keyframes logoSpin   { to { transform: rotate(360deg); } }
+@keyframes logoSpinR  { to { transform: rotate(-360deg); } }
+@keyframes logoPulse  { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.6; transform:scale(1.35); } }
+@keyframes logoSpark  { 0%,100% { transform:rotate(0deg) scale(1); } 50% { transform:rotate(180deg) scale(1.1); } }
+@keyframes logoWave   { to { stroke-dashoffset: -24; } }
+@keyframes logoGlow   { 0%,100% { filter:drop-shadow(0 0 12px rgba(0,201,212,.4)); } 50% { filter:drop-shadow(0 0 24px rgba(201,168,76,.5)); } }
+
+#brand-mark {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 20;
+  opacity: .85;
+  transition: opacity .25s;
+}
+#brand-mark:hover { opacity: 1; }

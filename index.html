@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="img/logo.svg"/>
 </head>
 <body>
 
@@ -15,6 +17,20 @@
 <canvas id="cursor-canvas"></canvas>
 
 <div id="stage">
+
+  <div id="brand-mark">
+    <svg width="36" height="36" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+      <defs>
+        <linearGradient id="bmLg" x1="30" y1="30" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#00c9d4"/><stop offset="100%" stop-color="#c9a84c"/>
+        </linearGradient>
+      </defs>
+      <circle cx="70" cy="70" r="62" stroke="rgba(201,168,76,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="6 4"
+        style="animation:logoSpin 25s linear infinite; transform-origin:70px 70px;"/>
+      <text x="70" y="90" text-anchor="middle" font-family="Changa,sans-serif" font-size="58" font-weight="800" fill="url(#bmLg)">د</text>
+      <circle cx="72" cy="34" r="5" fill="#c9a84c" style="animation:logoPulse 1.5s ease infinite;"/>
+    </svg>
+  </div>
 
   <div id="slide-counter">
     <span id="current-num">01</span>
@@ -36,6 +52,32 @@
           <img class="cover-logo" src="img/svu-logo.png" alt="SVU Logo" />
         </div>
         <div class="cover-center">
+          <svg width="88" height="88" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="animation:logoGlow 3s ease infinite; overflow:visible; margin-bottom:8px;">
+            <defs>
+              <linearGradient id="cvLg" x1="30" y1="30" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00c9d4"/><stop offset="55%" stop-color="#5ec9c4"/><stop offset="100%" stop-color="#c9a84c"/>
+              </linearGradient>
+              <linearGradient id="cvWg" x1="20" y1="100" x2="120" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00c9d4" stop-opacity="0"/><stop offset="35%" stop-color="#00c9d4"/><stop offset="65%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <circle cx="70" cy="70" r="62" stroke="rgba(201,168,76,0.2)" stroke-width="1" fill="none" stroke-dasharray="6 4"
+              style="animation:logoSpin 25s linear infinite; transform-origin:70px 70px;"/>
+            <circle cx="70" cy="70" r="52" stroke="rgba(0,201,212,0.12)" stroke-width="0.8" fill="none"
+              style="animation:logoSpinR 18s linear infinite; transform-origin:70px 70px;"/>
+            <text x="70" y="90" text-anchor="middle" font-family="Changa,sans-serif" font-size="58" font-weight="800" fill="url(#cvLg)">د</text>
+            <path d="M22 108 L38 108 L42 100 L47 116 L52 100 L57 116 L62 100 L67 116 L72 100 L77 108 L118 108"
+              stroke="url(#cvWg)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-dasharray="5 3"
+              style="animation:logoWave 1.8s linear infinite;"/>
+            <circle cx="72" cy="34" r="4.5" fill="#c9a84c" style="animation:logoPulse 1.5s ease infinite;"/>
+            <g style="animation:logoSpark 2s ease infinite; transform-origin:72px 34px;">
+              <line x1="72" y1="23" x2="72" y2="17" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="61" y1="34" x2="55" y2="34" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="64" y1="26" x2="60" y2="22" stroke="#c9a84c" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+              <line x1="80" y1="26" x2="84" y2="22" stroke="#c9a84c" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+            </g>
+          </svg>
           <div class="cover-topic-label">الموضوع</div>
           <h2 class="cover-topic">الذكاء الاصطناعي التوليدي</h2>
           <div class="cover-divider"></div>
