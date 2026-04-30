@@ -738,6 +738,89 @@
     });
   })();
 
+  (function () {
+    const QUESTIONS = [
+      {
+        q: 'ما الفرق الرئيسي بين الذكاء الاصطناعي التوليدي والتقليدي؟',
+        answers: ['التوليدي يُنشئ محتوى جديداً، التقليدي يُصنّف فحسب', 'التوليدي أقدم من التقليدي', 'التقليدي يحتاج بيانات أكثر', 'لا فرق بينهما'],
+        correct: 0,
+      },
+      {
+        q: 'ما التقنية التي تستخدمها DALL-E و Midjourney و Stable Diffusion؟',
+        answers: ['شبكات GANs', 'توليد النصوص', 'توليد الصور بالانتشار', 'التعرف على الكلام'],
+        correct: 2,
+      },
+      {
+        q: 'ما المبدأ الأساسي لـ GANs؟',
+        answers: ['شبكة واحدة تتدرب على بيانات ضخمة', 'مولّد ومميّز يتنافسان لتحسين الناتج', 'نموذج يُزيل الضوضاء تدريجياً', 'نموذج يترجم النص إلى رمز'],
+        correct: 1,
+      },
+      {
+        q: 'أي أداة تُعدّ مثالاً على توليد الفيديو من النص؟',
+        answers: ['GPT-4o', 'ElevenLabs', 'Sora', 'Stable Diffusion'],
+        correct: 2,
+      },
+      {
+        q: 'ما أحد المخاطر الأخلاقية الرئيسية للذكاء الاصطناعي التوليدي؟',
+        answers: ['الحوسبة الكمومية', 'قواعد البيانات العلائقية', 'تشفير البيانات', 'التزييف العميق Deepfakes'],
+        correct: 3,
+      },
+    ];
+
+    const qEl       = document.getElementById('quiz-question');
+    const answersEl = document.getElementById('quiz-answers');
+    const feedbackEl= document.getElementById('quiz-feedback');
+    const qNumEl    = document.getElementById('quiz-q-num');
+    const scoreFill = document.getElementById('quiz-score-fill');
+    if (!qEl || !answersEl) return;
+
+    const ARABIC_NUMS = ['١','٢','٣','٤','٥'];
+    let current = 0, score = 0;
+
+    function loadQuestion(i) {
+      const item = QUESTIONS[i];
+      qEl.textContent = item.q;
+      qNumEl.textContent = ARABIC_NUMS[i];
+      feedbackEl.textContent = '';
+      const btns = answersEl.querySelectorAll('.quiz-answer-btn');
+      btns.forEach((btn, j) => {
+        btn.textContent = item.answers[j];
+        btn.className = 'quiz-answer-btn';
+        btn.disabled = false;
+      });
+    }
+
+    answersEl.addEventListener('click', e => {
+      const btn = e.target.closest('.quiz-answer-btn');
+      if (!btn || btn.disabled) return;
+      const idx = [...answersEl.querySelectorAll('.quiz-answer-btn')].indexOf(btn);
+      const correct = QUESTIONS[current].correct;
+      answersEl.querySelectorAll('.quiz-answer-btn').forEach(b => b.disabled = true);
+      if (idx === correct) {
+        btn.classList.add('correct');
+        score++;
+        feedbackEl.textContent = '✓ إجابة صحيحة!';
+      } else {
+        btn.classList.add('wrong');
+        answersEl.querySelectorAll('.quiz-answer-btn')[correct].classList.add('correct');
+        feedbackEl.textContent = '✗ الإجابة الصحيحة مُظلَّلة';
+      }
+      scoreFill.style.width = (score / QUESTIONS.length * 100) + '%';
+      current++;
+      if (current < QUESTIONS.length) {
+        setTimeout(() => loadQuestion(current), 1200);
+      } else {
+        setTimeout(() => {
+          qEl.textContent = `انتهى الاختبار — نتيجتك ${ARABIC_NUMS[score - 1] || '٠'} / ٥`;
+          answersEl.innerHTML = '';
+          feedbackEl.textContent = score >= 4 ? '🌟 ممتاز!' : score >= 3 ? '👍 جيد' : 'استمر في التعلم!';
+        }, 1200);
+      }
+    });
+
+    loadQuestion(0);
+  })();
+
   function onSlideEnter(idx) {}
 
   updateNav();

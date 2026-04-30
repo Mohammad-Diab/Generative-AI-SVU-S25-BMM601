@@ -78,6 +78,7 @@
               <line x1="80" y1="26" x2="84" y2="22" stroke="#c9a84c" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
             </g>
           </svg>
+          <div class="slide-eyebrow cover-eyebrow">٠١ · الغلاف</div>
           <div class="cover-topic-label">الموضوع</div>
           <h2 class="cover-topic">الذكاء الاصطناعي التوليدي</h2>
           <div class="cover-divider"></div>
@@ -105,25 +106,83 @@
 
     <article class="slide" data-index="1">
       <div class="slide-inner slide-inner--definition">
-        <section class="genesis-orbit" aria-label="مخطط دائري">
-          <div class="orbit-core"><span>مخطط</span></div>
-          <div class="orbit-ring orbit-ring--outer"></div>
-          <div class="orbit-ring orbit-ring--inner"></div>
-          <div class="orbit-chip orbit-chip--one">نص</div>
-          <div class="orbit-chip orbit-chip--two">صورة</div>
-          <div class="orbit-chip orbit-chip--three">صوت</div>
-          <div class="orbit-chip orbit-chip--four">فيديو</div>
-          <div class="media-brief">مخطط بصري: علاقة الذكاء التوليدي بأنواع الوسائط</div>
+        <section class="genesis-chart" aria-label="كيف يعمل الذكاء التوليدي">
+          <div class="gc-stage">
+            <div class="gc-stage-lbl">المُدخل</div>
+            <div class="gc-prompt-card">
+              <div class="gc-pc-header"><span class="gc-pc-icon">✦</span><span>وصف نصي</span></div>
+              <div class="gc-pc-lines">
+                <div class="gc-pcl"></div>
+                <div class="gc-pcl gc-pcl--s"></div>
+              </div>
+            </div>
+            <div class="gc-in-tags">
+              <span>نص</span><span>صورة مرجعية</span><span>معامِلات</span>
+            </div>
+          </div>
+
+          <div class="gc-flow-v">
+            <div class="gc-fv-track"><div class="gc-fv-dot"></div></div>
+            <div class="gc-fv-tip"></div>
+          </div>
+
+          <div class="gc-stage">
+            <div class="gc-stage-lbl">النموذج</div>
+            <div class="gc-model-zone">
+              <div class="gc-mz-spacer"></div>
+              <div class="gc-model-vis">
+                <div class="gc-mv-ring gc-mv-ring--o"></div>
+                <div class="gc-mv-ring gc-mv-ring--i"></div>
+                <div class="gc-mv-hub">
+                  <span class="gc-mv-spark">✦</span>
+                  <span class="gc-mv-name">الذكاء<br>التوليدي</span>
+                </div>
+              </div>
+              <div class="gc-train-side">
+                <div class="gc-train-arrow"></div>
+                <div class="gc-train-box">
+                  <span class="gc-train-icon">↻</span>
+                  <div class="gc-train-name">تدريب مستمر</div>
+                  <div class="gc-train-sub">مليارات المعاملات</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gc-fan">
+            <div class="gc-fan-trunk"><div class="gc-fv-dot"></div></div>
+            <div class="gc-fan-bus"></div>
+            <div class="gc-fan-cols">
+              <div class="gc-fan-col">
+                <div class="gc-fan-branch"><div class="gc-fb-dot" style="--i:0"></div></div>
+                <div class="gc-out" style="--i:0"><span class="gc-out-icon">✦</span><span>نص</span></div>
+              </div>
+              <div class="gc-fan-col">
+                <div class="gc-fan-branch"><div class="gc-fb-dot" style="--i:1"></div></div>
+                <div class="gc-out" style="--i:1"><span class="gc-out-icon">◈</span><span>صورة</span></div>
+              </div>
+              <div class="gc-fan-col">
+                <div class="gc-fan-branch"><div class="gc-fb-dot" style="--i:2"></div></div>
+                <div class="gc-out" style="--i:2"><span class="gc-out-icon">♪</span><span>صوت</span></div>
+              </div>
+              <div class="gc-fan-col">
+                <div class="gc-fan-branch"><div class="gc-fb-dot" style="--i:3"></div></div>
+                <div class="gc-out" style="--i:3"><span class="gc-out-icon">▶</span><span>فيديو</span></div>
+              </div>
+            </div>
+          </div>
         </section>
         <section class="placeholder-panel definition-panel">
-          <div class="slide-eyebrow">٠١ · مقدمة</div>
+          <div class="slide-eyebrow">٠٢ · مقدمة</div>
           <h2 class="slide-title">ما هو الذكاء الاصطناعي التوليدي؟</h2>
-          <span class="placeholder-label">نص: تعريف مختصر</span>
-          <div class="text-placeholder text-placeholder--wide"></div>
-          <span class="placeholder-label">نص: أمثلة سريعة</span>
-          <div class="text-placeholder"></div>
-          <div class="mini-placeholder-grid">
-            <span></span><span></span><span></span>
+          <p class="slide-para">نماذج تتعلم من بيانات ضخمة لتُنتج محتوى جديداً — نصوصاً أو صوراً أو صوتاً أو فيديو — بأسلوب يحاكي الإبداع البشري. يختلف عن الذكاء التقليدي الذي يُصنّف فحسب: هو يُنشئ ويبتكر.</p>
+          <div class="mini-chip-row">
+            <span class="mini-chip">ChatGPT</span>
+            <span class="mini-chip">Claude</span>
+            <span class="mini-chip">DALL-E</span>
+            <span class="mini-chip">Midjourney</span>
+            <span class="mini-chip">Copilot</span>
+            <span class="mini-chip">Sora</span>
           </div>
         </section>
         <div class="definition-action">
@@ -135,24 +194,26 @@
     <article class="slide" data-index="2">
       <div class="slide-inner slide-inner--diffusion">
         <header class="layout-header">
-          <div class="slide-eyebrow">٠٢ · الآلية</div>
+          <div class="slide-eyebrow">٠٣ · الآلية</div>
           <h2 class="slide-title">كيف يعمل؟ نماذج الانتشار</h2>
         </header>
         <div class="diffusion-lab">
-          <div class="diffusion-step diffusion-step--noise"><span></span><strong>صورة: ضوضاء</strong></div>
+          <div class="diffusion-step diffusion-step--noise"><img src="img/diffusion/step-1-noise.webp" alt="ضوضاء عشوائية"/><strong>ضوضاء</strong></div>
           <div class="diffusion-arrow">←</div>
-          <div class="diffusion-step diffusion-step--rough"><span></span><strong>صورة: كتلة أولية</strong></div>
+          <div class="diffusion-step diffusion-step--rough"><img src="img/diffusion/step-2-rough.webp" alt="كتلة أولية"/><strong>كتلة أولية</strong></div>
           <div class="diffusion-arrow">←</div>
-          <div class="diffusion-step diffusion-step--shape"><span></span><strong>صورة: شكل عام</strong></div>
+          <div class="diffusion-step diffusion-step--shape"><img src="img/diffusion/step-3-shape.webp" alt="شكل عام"/><strong>شكل عام</strong></div>
           <div class="diffusion-arrow">←</div>
-          <div class="diffusion-step diffusion-step--detail"><span></span><strong>صورة: تفاصيل</strong></div>
+          <div class="diffusion-step diffusion-step--detail"><img src="img/diffusion/step-4-detail.webp" alt="تفاصيل"/><strong>تفاصيل</strong></div>
           <div class="diffusion-arrow">←</div>
-          <div class="diffusion-step diffusion-step--clean"><span></span><strong>صورة: نتيجة</strong></div>
+          <div class="diffusion-step diffusion-step--clean"><img src="img/diffusion/step-5-clean.webp" alt="النتيجة"/><strong>النتيجة</strong></div>
         </div>
         <div class="placeholder-panel process-note">
-          <span>نص: شرح مختصر لمسار إزالة الضوضاء</span>
-          <div class="text-placeholder text-placeholder--wide"></div>
-          <div class="text-placeholder"></div>
+          <p class="slide-para">نماذج الانتشار هي نوع من الذكاء الاصطناعي يتعلم كيف يُعيد بناء صورة واضحة من فوضى كاملة — مثلما تُشكّل قطرات المطر صورة على زجاج ضبابي.</p>
+          <p class="slide-para">تبدأ نماذج الانتشار من ضوضاء عشوائية كاملة، ثم تُزيل الضوضاء خطوة بعد خطوة — أكثر من 50 خطوة لكل صورة — حتى تتشكّل الصورة المطلوبة.</p>
+          <p class="slide-para">الوصف النصي يوجّه كل خطوة تنقية، لذلك تؤثر دقة الوصف مباشرة في جودة الناتج.</p>
+          <p class="slide-para">تدرّب النموذج على ملايين الصور الحقيقية وتعلّم منها ما يبدو "طبيعياً" — لهذا تبدو نتائجه واقعية لا مصطنعة.</p>
+          <p class="slide-para">هذا الأسلوب أصبح الأساس لأشهر أدوات توليد الصور اليوم مثل Stable Diffusion و DALL·E.</p>
           <button class="deep-dive-btn process-note__dive" data-slide="diffusion" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
         </div>
       </div>
@@ -161,24 +222,29 @@
     <article class="slide" data-index="3">
       <div class="slide-inner slide-inner--gan">
         <header class="layout-header">
-          <div class="slide-eyebrow">٠٣ · البنية</div>
+          <div class="slide-eyebrow">٠٤ · البنية</div>
           <h2 class="slide-title">الشبكات التوليدية التعاكسية — GANs</h2>
         </header>
+        <p class="slide-para gan-intro">GANs هي أحد أساليب الذكاء الاصطناعي التوليدي — ابتكرها إيان غودفيلو عام 2014 وكانت المهيمنة على توليد الصور لسنوات قبل أن تحلّ محلها نماذج الانتشار. الفكرة: شبكتان عصبيتان تتنافسان معاً حتى يصبح الناتج لا يُميَّز عن الحقيقي.</p>
         <div class="gan-arena">
           <section class="gan-side gan-side--generator">
             <div class="gan-icon">✦</div>
-            <h3>مخطط: المولّد</h3>
-            <span class="placeholder-label">نص: دوره في إنشاء العينة</span>
-            <div class="text-placeholder"></div>
-            <div class="gan-meter"><span></span></div>
+            <h3>المولّد</h3>
+            <p class="slide-para">يُنشئ صوراً مصطنعة من ضوضاء عشوائية، ويحاول خداع المميّز بجعل ناتجه يبدو حقيقياً</p>
+            <div class="gan-meter-wrap">
+              <span class="gan-meter-lbl">جودة الناتج</span>
+              <div class="gan-meter"><span></span></div>
+            </div>
           </section>
           <div class="gan-vs">مقابل</div>
           <section class="gan-side gan-side--judge">
             <div class="gan-icon">◈</div>
-            <h3>مخطط: المميّز</h3>
-            <span class="placeholder-label">نص: دوره في كشف العينة</span>
-            <div class="text-placeholder"></div>
-            <div class="gan-meter"><span></span></div>
+            <h3>المميّز</h3>
+            <p class="slide-para">يفحص كل صورة ويحكم — حقيقية أم مزيّفة؟ كلما كشف الخداع، اضطر المولّد إلى التحسين</p>
+            <div class="gan-meter-wrap">
+              <span class="gan-meter-lbl">دقة الكشف</span>
+              <div class="gan-meter gan-meter--gold"><span></span></div>
+            </div>
           </section>
         </div>
         <div class="action-row action-row--center">
@@ -190,30 +256,30 @@
     <article class="slide" data-index="4">
       <div class="slide-inner slide-inner--llm">
         <header class="layout-header">
-          <div class="slide-eyebrow">٠٤ · اللغة</div>
+          <div class="slide-eyebrow">٠٥ · اللغة</div>
           <h2 class="slide-title">نماذج اللغة الكبيرة — توليد النصوص</h2>
         </header>
         <div class="llm-pipeline">
           <div class="llm-col llm-col--input">
-            <div class="llm-col-label">نص: مدخلات</div>
-            <div class="llm-token">نص: رمز ١</div>
-            <div class="llm-token">نص: رمز ٢</div>
-            <div class="llm-token">نص: رمز ٣</div>
-            <div class="llm-token llm-token--faded">نص: رمز ٤</div>
+            <div class="llm-col-label">المُدخلات</div>
+            <div class="llm-token">الذكاء</div>
+            <div class="llm-token">الاصطناعي</div>
+            <div class="llm-token">يُغيّر</div>
+            <div class="llm-token llm-token--faded">العالم</div>
           </div>
           <div class="llm-arrow">←</div>
           <div class="llm-blackbox">
             <div class="llm-blackbox-label">النموذج</div>
             <div class="llm-layers"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="llm-blackbox-sub">نص: طبقات Transformer</div>
+            <div class="llm-blackbox-sub">طبقات Transformer</div>
           </div>
           <div class="llm-arrow">←</div>
           <div class="llm-col llm-col--output">
-            <div class="llm-col-label">نص: احتمالات</div>
-            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:72%"></div></div><small>نص: كلمة أ</small></div>
-            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:48%"></div></div><small>نص: كلمة ب</small></div>
-            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:31%"></div></div><small>نص: كلمة ج</small></div>
-            <div class="llm-prob llm-prob--selected"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:86%"></div></div><small>نص: كلمة د ✓</small></div>
+            <div class="llm-col-label">احتمال الكلمة التالية</div>
+            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:72%"></div></div><small>بسرعة</small></div>
+            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:48%"></div></div><small>للأبد</small></div>
+            <div class="llm-prob"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:31%"></div></div><small>اليوم</small></div>
+            <div class="llm-prob llm-prob--selected"><div class="llm-prob-track"><div class="llm-prob-fill" style="width:86%"></div></div><small>جذرياً ✓</small></div>
           </div>
         </div>
         <div class="action-row action-row--end">
@@ -228,7 +294,7 @@
           <div class="card-face card-front">
             <div class="slide-inner slide-inner--image">
               <div class="image-header-row">
-                <div class="slide-eyebrow">٠٥ · الصورة</div>
+                <div class="slide-eyebrow">٠٦ · الصورة</div>
                 <h2 class="slide-title">توليد الصور بالذكاء الاصطناعي</h2>
                 <div class="prompt-bar">
                   <span class="prompt-icon">✦</span>
@@ -236,7 +302,7 @@
                     <div class="prompt-fill"></div>
                     <div class="prompt-fill prompt-fill--short"></div>
                   </div>
-                  <span class="prompt-label">نص: الوصف</span>
+                  <span class="prompt-label">قطة فوق مكتبة قديمة، ضوء ذهبي، أسلوب رسم زيتي</span>
                 </div>
               </div>
               <div class="image-trio">
@@ -263,7 +329,7 @@
             <div class="slide-inner slide-inner--forge-back">
               <div class="back-header">
                 <button class="btn-back"><span>→</span><span>رجوع</span></button>
-                <div class="slide-eyebrow">٠٥ · المِصهَر</div>
+                <div class="slide-eyebrow">٠٦ · المِصهَر</div>
               </div>
               <div class="forge-prompt-row">
                 <span class="forge-prompt-spark">✦</span>
@@ -287,7 +353,7 @@
           <div class="card-face card-front">
             <div class="slide-inner slide-inner--audio">
               <header class="layout-header">
-                <div class="slide-eyebrow">٠٦ · الصوت</div>
+                <div class="slide-eyebrow">٠٧ · الصوت</div>
                 <h2 class="slide-title">توليد الصوت والموسيقى</h2>
               </header>
               <div class="prompt-bar audio-desc">
@@ -295,7 +361,7 @@
                 <div class="prompt-lines">
                   <div class="prompt-fill"></div>
                 </div>
-                <span class="prompt-label">نص: شرح مختصر</span>
+                <span class="prompt-label">نص إلى كلام · موسيقى من وصف · استنساخ صوت في ثوانٍ</span>
               </div>
               <div class="breath-stage">
                 <div class="breath-core">
@@ -322,7 +388,7 @@
             <div class="slide-inner slide-inner--tts-back">
               <div class="back-header">
                 <button class="btn-back"><span>→</span><span>رجوع</span></button>
-                <div class="slide-eyebrow">٠٦ · النطق التوليدي</div>
+                <div class="slide-eyebrow">٠٧ · النطق التوليدي</div>
               </div>
               <div class="tts-stage">
                 <div class="tts-text-box">
@@ -354,22 +420,19 @@
           <div class="cinema-middle">
             <div class="media-skeleton video-canvas"><span>فيديو: مشهد قصير مولّد من وصف</span></div>
             <div class="video-text-block">
-              <div class="text-placeholder text-placeholder--wide"></div>
-              <div class="text-placeholder text-placeholder--wide"></div>
-              <div class="text-placeholder"></div>
-              <div class="text-placeholder text-placeholder--wide"></div>
-              <div class="text-placeholder"></div>
+              <p class="slide-para">Sora من OpenAI يُنتج فيديو واقعياً من وصف نصي مع الحفاظ على قوانين الفيزياء واتساق الشخصيات بين الإطارات.</p>
+              <p class="slide-para">Runway Gen-3 و Pika تُحوّل النصوص أو الصور إلى مقاطع فيديو قصيرة بضغطة واحدة.</p>
             </div>
           </div>
           <div class="film-dots film-dots--bottom"></div>
         </div>
         <div class="video-caption">
           <div>
-            <div class="slide-eyebrow">٠٧ · الفيديو</div>
+            <div class="slide-eyebrow">٠٨ · الفيديو</div>
             <h2 class="slide-title">توليد الفيديو بالذكاء الاصطناعي</h2>
           </div>
           <div class="video-tools">
-            <span>نص: وصف المشهد</span><span>وسيط: إطار معاينة</span><span>نص: مدة الفيديو</span>
+            <span>غروب الشمس فوق المريخ بزاوية سينمائية</span><span>معاينة: 4 إطارات</span><span>مدة: 4–16 ثانية</span>
           </div>
           <div class="action-row">
             <button class="deep-dive-btn" data-slide="video" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
@@ -387,19 +450,19 @@
               <section class="dev-terminal">
                 <div class="terminal-bar"><span></span><span></span><span></span></div>
                 <div class="terminal-lines">
-                  <span>كود: طلب برمجي</span>
-                  <span>كود: اقتراح النموذج</span>
-                  <span>كود: نتيجة المراجعة</span>
+                  <span style="color:var(--cream-dim);"># احسب مجموع قائمة أرقام</span>
+                  <span style="color:var(--teal);">def sum_list(nums): return sum(nums)</span>
+                  <span style="color:var(--gold);">✓ اقتراح Copilot — راجع قبل النسخ</span>
                   <strong>▌</strong>
                 </div>
               </section>
               <section class="placeholder-panel dev-panel">
-                <div class="slide-eyebrow">٠٨ · التطوير والبرمجة</div>
+                <div class="slide-eyebrow">٠٩ · التطوير والبرمجة</div>
                 <h2 class="slide-title">الذكاء الاصطناعي في بناء البرمجيات</h2>
                 <div class="dev-cards">
-                  <div><strong>نص</strong><span>حالة استخدام</span></div>
-                  <div><strong>مخطط</strong><span>دورة عمل المطور</span></div>
-                  <div><strong>كود</strong><span>مثال قصير</span></div>
+                  <div><strong>إكمال الكود</strong><span>يقترح السطر أو الدالة التالية بالسياق</span></div>
+                  <div><strong>مراجعة تلقائية</strong><span>يكشف الأخطاء والثغرات قبل التشغيل</span></div>
+                  <div><strong>توليد الاختبارات</strong><span>يكتب unit tests من الكود الموجود</span></div>
                 </div>
                 <div class="action-row action-row--spread">
                   <button class="deep-dive-btn" data-slide="dev" type="button"><span>⬡</span><span>تعمّق أكثر</span></button>
@@ -412,7 +475,7 @@
             <div class="slide-inner slide-inner--code-back">
               <div class="back-header">
                 <button class="btn-back"><span>→</span><span>رجوع</span></button>
-                <div class="slide-eyebrow">٠٨ · مساعد الكود</div>
+                <div class="slide-eyebrow">٠٩ · مساعد الكود</div>
               </div>
               <div class="code-split">
                 <div class="code-editor-pane">
@@ -441,32 +504,32 @@
     <article class="slide" data-index="9">
       <div class="slide-inner slide-inner--models">
         <header class="layout-header">
-          <div class="slide-eyebrow">٠٩ · النماذج</div>
+          <div class="slide-eyebrow">١٠ · النماذج</div>
           <h2 class="slide-title">أبرز نماذج وأدوات الذكاء الاصطناعي</h2>
         </header>
         <div class="model-landscape">
           <div class="model-zone model-zone--language">
             <div class="model-zone-label">لغة</div>
             <div class="model-zone-cards">
-              <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
-              <div class="model-card" data-cat="text"><strong>نموذج لغة</strong><span>نص: اسم ووظيفة</span></div>
-              <div class="model-card" data-cat="text"><strong>نموذج متعدد</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="text"><strong>GPT-4o</strong><span>OpenAI · نص وصورة وكود</span></div>
+              <div class="model-card" data-cat="text"><strong>Claude 3.7</strong><span>Anthropic · تحليل ونصوص طويلة</span></div>
+              <div class="model-card" data-cat="text"><strong>Gemini 1.5 Pro</strong><span>Google · متعدد الوسائط</span></div>
             </div>
           </div>
           <div class="model-zone model-zone--image">
             <div class="model-zone-label">صورة</div>
             <div class="model-zone-cards">
-              <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
-              <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
-              <div class="model-card" data-cat="image"><strong>أداة صور</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="image"><strong>DALL-E 3</strong><span>OpenAI · فهم الوصف دقيق</span></div>
+              <div class="model-card" data-cat="image"><strong>Midjourney v6</strong><span>جودة فنية عالية</span></div>
+              <div class="model-card" data-cat="image"><strong>Stable Diffusion XL</strong><span>Stability AI · مفتوح المصدر</span></div>
             </div>
           </div>
           <div class="model-zone model-zone--av">
             <div class="model-zone-label">صوت وفيديو</div>
             <div class="model-zone-cards">
-              <div class="model-card" data-cat="audio"><strong>أداة صوت</strong><span>نص: اسم ووظيفة</span></div>
-              <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
-              <div class="model-card" data-cat="video"><strong>أداة فيديو</strong><span>نص: اسم ووظيفة</span></div>
+              <div class="model-card" data-cat="audio"><strong>ElevenLabs</strong><span>استنساخ وتوليد أصوات بشرية</span></div>
+              <div class="model-card" data-cat="video"><strong>Sora</strong><span>OpenAI · فيديو واقعي من نص</span></div>
+              <div class="model-card" data-cat="video"><strong>Runway Gen-3</strong><span>تحويل نص أو صورة إلى فيديو</span></div>
             </div>
           </div>
         </div>
@@ -479,25 +542,25 @@
     <article class="slide" data-index="10">
       <div class="slide-inner slide-inner--scale">
         <header class="layout-header">
-          <div class="slide-eyebrow">١٠ · الميزان</div>
+          <div class="slide-eyebrow">١١ · الميزان</div>
           <h2 class="slide-title">القدرة والمسؤولية</h2>
         </header>
         <div class="scale-board">
           <section class="scale-pan scale-pan--benefits" id="scale-pan-benefits">
-            <h3>نص: فرص وفوائد</h3>
-            <div class="text-placeholder text-placeholder--wide"></div>
-            <div class="text-placeholder"></div>
-            <div class="text-placeholder text-placeholder--short"></div>
+            <h3>الفرص والفوائد</h3>
+            <p class="slide-para">تسريع البحث العلمي والطبي</p>
+            <p class="slide-para">أدوات إبداعية في متناول الجميع</p>
+            <p class="slide-para">أتمتة المهام المتكررة وتوفير الوقت</p>
           </section>
           <div class="scale-axis" id="scale-axis">
             <span></span>
             <strong>مخطط ميزان</strong>
           </div>
           <section class="scale-pan scale-pan--risks" id="scale-pan-risks">
-            <h3>نص: مخاطر ومسؤوليات</h3>
-            <div class="text-placeholder text-placeholder--wide"></div>
-            <div class="text-placeholder"></div>
-            <div class="text-placeholder text-placeholder--short"></div>
+            <h3>المخاطر والمسؤوليات</h3>
+            <p class="slide-para">التزييف العميق وانتشار المعلومات المضللة</p>
+            <p class="slide-para">انتهاك حقوق الملكية الفكرية</p>
+            <p class="slide-para">التحيز وتوسيع الفجوات الرقمية</p>
           </section>
         </div>
         <div class="action-row action-row--center">
@@ -509,33 +572,33 @@
     <article class="slide" data-index="11">
       <div class="slide-inner slide-inner--future">
         <header class="layout-header">
-          <div class="slide-eyebrow">١١ · المستقبل</div>
+          <div class="slide-eyebrow">١٢ · المستقبل</div>
           <h2 class="slide-title">إلى أين يتجه الذكاء الاصطناعي التوليدي؟</h2>
         </header>
         <div class="future-trends">
           <div class="trend-card">
             <div class="trend-icon">◈</div>
-            <strong>نص: نماذج متعددة الوسائط</strong>
-            <div class="text-placeholder"></div>
+            <strong>نماذج متعددة الوسائط</strong>
+            <p class="slide-para">نموذج واحد يفهم النص والصوت والصورة والفيديو في آنٍ معاً</p>
           </div>
           <div class="trend-card">
             <div class="trend-icon">✦</div>
-            <strong>نص: وكلاء ذكية تنفذ مهام</strong>
-            <div class="text-placeholder"></div>
+            <strong>وكلاء ذكية تنفذ مهام</strong>
+            <p class="slide-para">عوامل تخطط وتنفذ مهام معقدة باستقلالية كاملة</p>
           </div>
           <div class="trend-card">
             <div class="trend-icon">⬡</div>
-            <strong>نص: أدوات إنتاج أسرع وأرخص</strong>
-            <div class="text-placeholder"></div>
+            <strong>إنتاج أسرع وأرخص</strong>
+            <p class="slide-para">التكلفة تنخفض كل عام مما يجعلها في متناول الأفراد والمطورين</p>
           </div>
         </div>
         <div class="future-timeline">
           <div class="timeline-track">
-            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
-            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
-            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
-            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
-            <div class="timeline-node"><div class="timeline-dot"></div><strong>عام</strong><span>مخطط: حدث</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>2017</strong><span>نشر ورقة Transformer</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>2020</strong><span>GPT-3 يُذهل العالم</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>2022</strong><span>ChatGPT و Stable Diffusion</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>2023</strong><span>GPT-4 و Midjourney v5</span></div>
+            <div class="timeline-node"><div class="timeline-dot"></div><strong>2024</strong><span>Sora و Claude 3 و Gemini 1.5</span></div>
           </div>
         </div>
       </div>
@@ -547,24 +610,22 @@
           <div class="card-face card-front">
             <div class="slide-inner slide-inner--quiz slide-inner--ethics-close">
               <header class="layout-header">
-                <div class="slide-eyebrow">١٢ · الأخلاق والخاتمة</div>
+                <div class="slide-eyebrow">١٣ · الأخلاق والخاتمة</div>
                 <h2 class="slide-title">مع القوة تأتي المسؤولية — ماذا تعلّمت؟</h2>
               </header>
               <div class="ethics-cards ethics-cards--compact">
-                <div><span>أيقونة</span><strong>نص: الانحياز</strong><p></p></div>
-                <div><span>أيقونة</span><strong>نص: الملكية</strong><p></p></div>
-                <div><span>أيقونة</span><strong>نص: التزييف</strong><p></p></div>
+                <div><span>⚖</span><strong>الانحياز والتمييز</strong><p class="slide-para">قد تُكرّس النماذج تحيزات البيانات التدريبية وتُضخّمها</p></div>
+                <div><span>©</span><strong>الملكية الفكرية</strong><p class="slide-para">محتوى مولّد من أعمال محمية دون إذن أصحابها</p></div>
+                <div><span>🎭</span><strong>التزييف العميق</strong><p class="slide-para">صور وأصوات مزيفة تُستخدم للتضليل وإيذاء الأفراد</p></div>
               </div>
               <div class="ethics-facts-row">
                 <div class="ethics-fact">
-                  <strong>نص: قانون الاتحاد الأوروبي للذكاء الاصطناعي</strong>
-                  <div class="text-placeholder text-placeholder--wide"></div>
-                  <div class="text-placeholder"></div>
+                  <strong>قانون الاتحاد الأوروبي للذكاء الاصطناعي</strong>
+                  <p class="slide-para">دخل حيز التنفيذ 2024، يُصنّف التطبيقات حسب مستوى الخطر ويفرض شفافية إلزامية على النماذج العامة.</p>
                 </div>
                 <div class="ethics-fact">
-                  <strong>نص: خلاصة — كيف تتعامل مع الذكاء الاصطناعي؟</strong>
-                  <div class="text-placeholder text-placeholder--wide"></div>
-                  <div class="text-placeholder"></div>
+                  <strong>كيف تتعامل مع الذكاء الاصطناعي؟</strong>
+                  <p class="slide-para">استخدمه كأداة مساعدة، تحقق من مخرجاته دائماً، ولا تتنازل عن التحكم البشري في القرارات الحساسة.</p>
                 </div>
               </div>
               <div class="action-row">
@@ -576,7 +637,7 @@
             <div class="slide-inner slide-inner--quiz-back">
               <div class="back-header">
                 <button class="btn-back"><span>→</span><span>رجوع</span></button>
-                <div class="slide-eyebrow">١٢ · اختبر معلوماتك</div>
+                <div class="slide-eyebrow">١٣ · اختبر معلوماتك</div>
               </div>
               <div class="quiz-q-header">
                 <span class="quiz-q-badge">سؤال <span id="quiz-q-num">١</span> / ٥</span>
