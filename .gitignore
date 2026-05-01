@@ -25,6 +25,7 @@ package-lock.json
 .env
 .env.local
 .env.*.local
+.dev.vars
 
 # ── Markdown (keep only README.md and LICENSE.md) ─
 *.md
@@ -35,6 +36,10 @@ package-lock.json
 # ── PDF ─────────────────────────────────────────
 *.pdf
 !design/*.pdf
+
+# ── Cloudflare / Wrangler ────────────────────────
+.wrangler/
+proxy/.wrangler/
 
 # ── Temp & logs ─────────────────────────────────
 *.log

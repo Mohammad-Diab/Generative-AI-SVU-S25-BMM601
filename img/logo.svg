@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="140" height="140" viewBox="25 0 90 105" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="lg" x1="30" y1="30" x2="110" y2="110" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#00c9d4"/>
       <stop offset="100%" stop-color="#c9a84c"/>
     </linearGradient>
   </defs>
-  <text x="70" y="95" text-anchor="middle" font-family="Changa,sans-serif" font-size="68" font-weight="800" fill="url(#lg)">د</text>
-  <circle cx="72" cy="34" r="6" fill="#c9a84c"/>
+  <text x="70" y="112" text-anchor="middle" font-family="Changa,Arial,sans-serif" font-size="124" font-weight="800" fill="url(#lg)">د</text>
+  <circle cx="78" cy="13" r="10" fill="#c9a84c"/>
 </svg>
