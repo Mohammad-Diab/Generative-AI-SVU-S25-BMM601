@@ -1,0 +1,13 @@
+name = "ai-proxy"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+DAILY_LIMIT = "5"
+IMAGE_DAILY_LIMIT = "3"
+CODE_DAILY_LIMIT = "5"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "da49b2bd744848e3968913a5e9701868"
+preview_id = "af8e2194615440c18301fd5774f13ad1"
