@@ -15,7 +15,7 @@
 (function () {
   'use strict';
 
-  const PROXY_BASE = 'http://127.0.0.1:8787';
+  const PROXY_BASE = 'https://ai-proxy.ai-proxy-bmm601.workers.dev';
 
   const bgCanvas = document.getElementById('bg-canvas');
   const bgCtx    = bgCanvas.getContext('2d');

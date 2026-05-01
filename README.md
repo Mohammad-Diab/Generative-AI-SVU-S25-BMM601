@@ -37,6 +37,16 @@ Open `index.html` directly in a browser, or use VS Code Live Server on port 5500
 
 > Frontend-only — no backend, no API calls. All demos are simulations running in the browser.
 
+## Developer
+
+Mohammad Diab
+
+## Contributors
+
+- Bilal Swidan
+- Haidar Teffaha
+- Mahmoud AlMokhtar
+
 ## License
 
 See [LICENSE](LICENSE) file.
