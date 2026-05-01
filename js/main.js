@@ -445,9 +445,13 @@
       const slide = btn.closest('.slide');
       const idx   = slide ? parseInt(slide.dataset.index) : -1;
       if (idx === 12 && window._quizReset) window._quizReset();
-      if (FLIP_CREDITS[idx] !== undefined && slideCreditEl) {
-        slideCreditEl.innerHTML = FLIP_CREDITS[idx];
-        slideCreditEl.classList.add('visible');
+      if (slideCreditEl) {
+        if (FLIP_CREDITS[idx] !== undefined) {
+          slideCreditEl.innerHTML = FLIP_CREDITS[idx];
+          slideCreditEl.classList.add('visible');
+        } else {
+          slideCreditEl.classList.remove('visible');
+        }
       }
     });
   });
@@ -459,8 +463,13 @@
       card.classList.remove('flipped');
       const slide = btn.closest('.slide');
       const idx   = slide ? parseInt(slide.dataset.index) : -1;
-      if (FLIP_CREDITS[idx] !== undefined && slideCreditEl) {
-        slideCreditEl.classList.remove('visible');
+      if (slideCreditEl) {
+        if (SLIDE_CREDITS[idx] !== undefined) {
+          slideCreditEl.innerHTML = SLIDE_CREDITS[idx];
+          slideCreditEl.classList.add('visible');
+        } else {
+          slideCreditEl.classList.remove('visible');
+        }
       }
     });
   });
@@ -1468,7 +1477,8 @@
 
   const slideCreditEl = document.getElementById('slide-credit');
   const SLIDE_CREDITS = {
-    2: 'الصور مُولَّدة بـ <strong>DALL·E</strong> عبر ChatGPT &thinsp;·&thinsp; الوصف: <em>"sharp photorealistic red coffee mug on a wooden table, professional lighting, detailed ceramic texture"</em>',
+    2: 'الصور مُولَّدة بـ <strong>DALL·E 3</strong> عبر ChatGPT &thinsp;·&thinsp; الصوت بـ <strong>ElevenLabs</strong> &thinsp;·&thinsp; الفيديو بـ <strong>Sora</strong>',
+    6: 'الصوت مُولَّد بـ <strong>Airvoz</strong> &thinsp;·&thinsp; اللغة العربية السعودية &thinsp;·&thinsp; صوت <strong>Hamed</strong>',
     7: 'الفيديو مُولَّد بـ <strong>Gemini Veo 3</strong> &thinsp;·&thinsp; Google DeepMind',
   };
   const FLIP_CREDITS = {
@@ -1477,9 +1487,30 @@
     8: 'مشغّل بـ <strong>Groq</strong> · نموذج <strong>Qwen3-32B</strong> · توليد كود Python / JS',
   };
   const marsVideo = document.querySelector('[data-index="7"] video');
+  const marsSource = marsVideo ? marsVideo.querySelector('source') : null;
+  const MARS_SRC = marsSource ? marsSource.getAttribute('src') : null;
   let marsUserPaused = false;
 
+  function marsLoad() {
+    if (!marsVideo || !marsSource || !MARS_SRC) return;
+    if (!marsSource.getAttribute('src')) {
+      marsSource.setAttribute('src', MARS_SRC);
+      marsVideo.load();
+    }
+  }
+
+  function marsUnload() {
+    if (!marsVideo || !marsSource) return;
+    marsVideo.pause();
+    marsVideo.currentTime = 0;
+    marsSource.removeAttribute('src');
+    marsVideo.load();
+    marsUserPaused = false;
+  }
+
   if (marsVideo) {
+    marsSource.removeAttribute('src');
+    marsVideo.load();
     marsVideo.style.cursor = 'none';
     marsVideo.addEventListener('click', () => {
       if (marsVideo.paused) { marsUserPaused = false; marsVideo.play().catch(() => {}); }
@@ -1489,8 +1520,8 @@
 
   function onSlideEnter(idx) {
     if (marsVideo) {
-      if (idx === 7) { if (!marsUserPaused) setTimeout(() => marsVideo.play().catch(() => {}), 1000); }
-      else           { marsVideo.pause(); marsVideo.currentTime = 0; marsUserPaused = false; }
+      if (idx === 7) { marsLoad(); if (!marsUserPaused) setTimeout(() => marsVideo.play().catch(() => {}), 1000); }
+      else           { marsUnload(); }
     }
     if (idx === 10) { if (scaleStart) scaleStart(); }
     else if (scaleReset) scaleReset();
