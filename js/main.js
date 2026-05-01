@@ -1,4 +1,18 @@
 (function () {
+  const warning = document.getElementById('screen-warning');
+  const warningRes = document.getElementById('warning-res');
+  function checkScreen() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const small = w < 1280 || h < 720;
+    warning.classList.toggle('visible', small);
+    if (warningRes) warningRes.textContent = w + ' × ' + h;
+  }
+  checkScreen();
+  window.addEventListener('resize', checkScreen);
+})();
+
+(function () {
   'use strict';
 
   const PROXY_BASE = 'http://127.0.0.1:8787';
