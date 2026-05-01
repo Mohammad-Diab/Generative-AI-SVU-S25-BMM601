@@ -2035,6 +2035,8 @@ img, video {
   margin: 0;
   flex: 1;
   overflow-y: auto;
+  direction: ltr;
+  text-align: justify;
 }
 
 .video-gen-note {
