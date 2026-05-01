@@ -46,6 +46,8 @@ Mohammad Diab
 - Bilal Swidan
 - Haidar Teffaha
 - Mahmoud AlMokhtar
+- Nour Alhouda Einawi
+- Esraa Shafia
 
 ## License
 
