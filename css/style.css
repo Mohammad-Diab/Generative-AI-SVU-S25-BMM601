@@ -2081,9 +2081,12 @@ img, video {
 }
 
 .dev-video-slot {
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   border-radius: 1rem;
   overflow: hidden;
+  object-fit: cover;
+  display: block;
 }
 
 .code-gen-input-row {
