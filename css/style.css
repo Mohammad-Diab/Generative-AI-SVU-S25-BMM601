@@ -2085,7 +2085,7 @@ img, video {
   height: 100%;
   border-radius: 1rem;
   overflow: hidden;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
