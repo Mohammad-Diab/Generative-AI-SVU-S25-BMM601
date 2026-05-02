@@ -1477,7 +1477,7 @@
 
   const slideCreditEl = document.getElementById('slide-credit');
   const SLIDE_CREDITS = {
-    2: 'الصور مُولَّدة بـ <strong>DALL·E 3</strong> عبر ChatGPT &thinsp;·&thinsp; الصوت بـ <strong>ElevenLabs</strong> &thinsp;·&thinsp; الفيديو بـ <strong>Sora</strong>',
+    2: 'الصور مُولَّدة بـ <strong>DALL·E 3</strong> عبر ChatGPT &thinsp;·&thinsp; الوصف: <em>"sharp photorealistic red coffee mug on a wooden table, professional lighting, detailed ceramic texture"</em>',
     6: 'الصوت مُولَّد بـ <strong>Airvoz</strong> &thinsp;·&thinsp; اللغة العربية السعودية &thinsp;·&thinsp; صوت <strong>Hamed</strong>',
     7: 'الفيديو مُولَّد بـ <strong>Gemini Veo 3</strong> &thinsp;·&thinsp; Google DeepMind',
   };
