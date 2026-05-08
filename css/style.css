@@ -4019,3 +4019,214 @@ img, video {
   padding: 0.5rem 1.4rem;
 }
 
+/* ── Responsive: touch pointer ───────────────────── */
+
+@media (pointer: coarse) {
+  html, body { cursor: auto; }
+  button, a { cursor: auto; }
+  #cursor-canvas { display: none; }
+}
+
+/* ── Responsive: tablet portrait / phone (≤ 768px) ── */
+
+@media (max-width: 48rem) {
+  :root {
+    --slide-w: 100vw;
+    --slide-h: calc(100dvh - 3rem);
+    --radius: 0px;
+  }
+
+  #stage {
+    padding: 3rem 0 0;
+    align-items: stretch;
+  }
+
+  #deck { border-radius: 0; }
+
+  .slide {
+    border-radius: 0;
+    border-inline: none;
+    border-block-start: none;
+  }
+
+  .slide-inner {
+    padding: 1.1rem 1rem;
+    gap: 0.7rem;
+    overflow-y: auto;
+  }
+
+  #slide-counter { display: none; }
+  #brand-mark    { display: none; }
+
+  #slide-nav {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    padding: 0.4rem 0.65rem;
+    gap: 0.4rem;
+    background: rgba(13,27,42,0.94);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+  }
+
+  #btn-prev, #btn-next {
+    min-width: 4.5rem;
+    padding: 6px 12px;
+    font-size: 0.76rem;
+  }
+
+  #dot-track { gap: 4px; }
+  .nav-dot { width: 5px; height: 5px; }
+  .nav-dot.active { width: 12px; }
+
+  #slide-credit { display: none; }
+
+  .slide-inner--cover { padding: 1rem; gap: 0.65rem; }
+  .cover-logo { height: 52px; }
+  .cover-uni-name { font-size: 0.85rem; }
+  .cover-faculty, .cover-semester, .cover-course { font-size: 0.72rem; }
+  .cover-center svg { width: 56px; height: 56px; }
+  .cover-topic { font-size: clamp(1.05rem, 4.8vw, 1.5rem); }
+  .cover-teacher-inline .cover-name { font-size: 0.95rem; }
+  .cover-student-list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8px;
+    row-gap: 4px;
+  }
+  .cover-student-list .student-row:last-child:nth-child(3n+1) { grid-column: auto; }
+  .student-row { padding: 4px 7px; gap: 5px; }
+  .student-row .s-name { font-size: 0.72rem; }
+  .student-row .s-id   { font-size: 0.65rem; }
+  .student-row .s-cls  { font-size: 0.68rem; }
+
+  .layout-header { flex-direction: column; gap: 0.35rem; }
+  .slide-title   { font-size: clamp(1rem, 4.2vw, 1.35rem); }
+  .slide-eyebrow { font-size: 0.72rem; }
+
+  .slide-inner--definition {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    overflow-y: auto;
+    gap: 0.65rem;
+  }
+  .genesis-chart { min-height: auto; padding-block: 0.5rem; }
+  .gc-model-vis  { width: clamp(4.5rem, 16vw, 5.5rem); }
+  .definition-action { padding-block-start: 0; }
+
+  .slide-inner--diffusion { gap: 0.75rem; }
+  .diffusion-lab {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.6rem;
+    padding-block-end: 0.35rem;
+    scrollbar-width: none;
+  }
+  .diffusion-lab::-webkit-scrollbar { display: none; }
+  .diffusion-step {
+    flex: 0 0 clamp(7rem, 35vw, 9.5rem);
+    min-height: clamp(7.5rem, 20vh, 11rem);
+  }
+  .process-note { overflow-y: auto; flex: 1; }
+  .process-note .slide-para { font-size: 0.76rem; }
+
+  .gan-arena { grid-template-columns: 1fr; gap: 0.65rem; }
+  .gan-vs    { width: 3rem; font-size: 0.72rem; }
+  .gan-side  { padding: 1rem; }
+
+  .slide-inner--llm { overflow-y: auto; }
+  .llm-pipeline {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 0.3rem;
+  }
+  .llm-arrow    { height: 1.4rem; transform: rotate(-90deg); font-size: 0.95rem; }
+  .llm-blackbox { height: auto; padding: 0.75rem; min-height: 0; }
+  .llm-col      { height: auto; }
+  .llm-explain  { width: 100%; }
+
+  .image-trio   { grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
+  .prompt-bar   { padding: 0.48rem 0.75rem; }
+  .prompt-label { font-size: 0.72rem; line-height: 1.45; }
+
+  .audio-explain-row { grid-template-columns: 1fr; gap: 0.55rem; }
+  .breath-core       { width: clamp(8rem, 28vw, 11rem); }
+  .breath-controls   { flex-direction: column; gap: 0.5rem; }
+  .breath-mic-btn, .breath-sample-btn { font-size: 0.76rem; padding: 6px 14px; }
+
+  .cinema-middle    { flex-direction: column; gap: 0.6rem; }
+  .video-text-block { flex: none; max-height: 5rem; overflow-y: auto; }
+  .video-canvas     { width: 100%; height: auto; min-height: 0; }
+  .video-caption    { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+
+  .slide-inner--dev { grid-template-columns: 1fr; overflow-y: auto; }
+  .dev-video-slot   { max-height: 11rem; width: auto; margin: 0 auto; }
+  .dev-panel        { gap: 0.55rem; padding: 0.5rem 0; }
+
+  .model-zone       { flex: 0 0 10.5rem; }
+  .model-zone-label { font-size: 0.62rem; }
+  .model-zone-cards .model-card strong { font-size: 0.72rem; }
+
+  .scale-board { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+  .scale-pan   { min-height: auto; padding: 1rem; }
+  .scale-axis  { min-height: auto; padding: 0.5rem 0; }
+  .scale-axis span   { width: 100%; height: 0.35rem; }
+  .scale-axis::before { width: 8rem; height: 0.35rem; transform: rotate(0deg); }
+
+  .slide-inner--future { overflow-y: auto; }
+  .future-timeline {
+    overflow-x: auto;
+    padding-block-end: 0.5rem;
+    scrollbar-width: none;
+  }
+  .future-timeline::-webkit-scrollbar { display: none; }
+  .timeline-track {
+    grid-template-columns: repeat(8, minmax(4.5rem, 1fr));
+    min-width: 30rem;
+  }
+  .future-trends { grid-template-columns: 1fr; margin-block-end: 1rem; gap: 0.65rem; }
+  .trend-card    { padding: 1rem 0.9rem; }
+
+  .slide-inner--ethics-close { overflow-y: auto; gap: 0.65rem; }
+  .ethics-cards { grid-template-columns: 1fr; gap: 0.55rem; }
+  .ethics-cards--compact > div { min-height: auto; }
+  .ethics-facts-row { grid-template-columns: 1fr; }
+  .ethics-fact      { padding: 0.75rem 0.9rem; }
+  .ethics-cta       { padding: 0.7rem 0.9rem; }
+
+  .slide-inner--quiz-back { overflow-y: auto; }
+  .quiz-answers-grid { grid-template-columns: 1fr; gap: 0.55rem; }
+  .quiz-answer-btn   { padding: 0.7rem; font-size: 0.82rem; }
+
+  .slide-inner--llm-back  { gap: 0.45rem; overflow-y: auto; }
+  .llm-demo-input-row     { flex-wrap: wrap; gap: 0.4rem; }
+  .llm-counter            { font-size: 0.68rem; }
+  .slide-inner--code-back { overflow-y: auto; }
+  .code-gen-input-row     { flex-wrap: wrap; gap: 0.4rem; }
+  .forge-canvas           { width: 100%; height: auto; min-height: 9rem; max-height: 38vh; }
+  .slide-inner--def-video { overflow: hidden; }
+
+  .dd-panel      { border-radius: 16px; }
+  .dd-panel-inner { padding: 1.1rem 1rem 1.4rem; }
+  .dd-content    { grid-template-columns: 1fr; }
+  .dd-title      { font-size: clamp(1rem, 4vw, 1.4rem); margin-bottom: 12px; }
+}
+
+/* ── Responsive: small phone (≤ 480px) ─────────────── */
+
+@media (max-width: 30rem) {
+  .cover-student-list { grid-template-columns: 1fr; }
+  .cover-student-list .student-row:last-child:nth-child(3n+1) { grid-column: auto; }
+  .slide-inner        { padding: 0.85rem 0.7rem; gap: 0.5rem; }
+  .slide-inner--cover { padding: 0.75rem; }
+  .cover-logo         { height: 42px; }
+  .timeline-track     { min-width: 26rem; }
+  #btn-prev span:last-child,
+  #btn-next span:first-child { display: none; }
+  #btn-prev, #btn-next { min-width: 2.8rem; padding: 6px 9px; }
+}

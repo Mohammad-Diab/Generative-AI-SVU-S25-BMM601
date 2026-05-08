@@ -4,7 +4,7 @@
   function checkScreen() {
     const w = window.innerWidth;
     const h = window.innerHeight;
-    const small = w < 1280 || h < 720;
+    const small = w >= 768 && (w < 1280 || h < 720);
     warning.classList.toggle('visible', small);
     if (warningRes) warningRes.textContent = w + ' × ' + h;
   }
